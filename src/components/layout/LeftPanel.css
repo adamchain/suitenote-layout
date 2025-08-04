@@ -1,0 +1,81 @@
+@@ .. @@
+ .left-panel {
+   position: relative;
+-  background: #ffffff;
++  background: var(--vscode-sidebar-bg);
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+   height: 100vh;
+   z-index: 10;
+-  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+-  color: #202124;
++  font-family: var(--font-family);
++  color: var(--vscode-text);
+   padding: 0;
+   gap: 0;
+   min-width: 280px;
+-  border-right: 1px solid #e8eaed;
++  border-right: 1px solid var(--vscode-border);
+   box-sizing: border-box;
+-  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.15);
++  box-shadow: var(--fluent-shadow);
+ }
+
+@@ .. @@
+ /* Panel Headers */
+ .panel-header {
+   flex-shrink: 0;
+-  padding: 20px 16px 16px 16px;
+-  border-bottom: 1px solid #f9f9f9;
++  padding: var(--space-lg) var(--space-lg) var(--space-md) var(--space-lg);
++  border-bottom: 1px solid var(--vscode-border);
++  background: var(--vscode-bg-alt);
+ }
+
+ .logo-section {
+-  margin-bottom: 16px;
++  margin-bottom: var(--space-lg);
+ }
+
+ .logo-section span {
+-  font-size: 18px;
+-  font-weight: 400;
+-  color: #5f6368;
++  font-size: 20px;
++  font-weight: 600;
++  color: var(--vscode-text-primary);
+   letter-spacing: -0.25px;
+ }
+
+ .workspace-selector {
+   position: relative;
+   display: flex;
+   align-items: center;
+-  gap: 4px;
++  gap: var(--space-xs);
+   font-size: 14px;
+-  font-weight: 400;
+-  color: #202124;
+-  padding: 8px 12px;
+-  border-radius: 8px;
+-  border: 1px solid #dadce0;
+-  background: #ffffff;
++  font-weight: 500;
++  color: var(--vscode-text);
++  padding: var(--space-sm) var(--space-md);
++  border-radius: var(--fluent-radius);
++  border: 1px solid var(--vscode-border);
++  background: var(--vscode-bg-elevated);
+   cursor: pointer;
+-  transition: all 0.2s ease;
++  transition: var(--transition-normal);
+ }
+
+ .workspace-selector:hover {
+-  border-color: #bdc1c6;
+-  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.15);
++  border-color: var(--copilot-primary);
++  box-shadow: var(--fluent-shadow);
++  background: var(--vscode-bg-hover);
+ }

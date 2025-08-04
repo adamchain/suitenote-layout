@@ -1,0 +1,56 @@
+@@ .. @@
+ .main-section {
+-  backdrop-filter: blur(20px) saturate(180%);
+-  -webkit-backdrop-filter: blur(20px) saturate(180%);
++  background: var(--vscode-editor-bg);
+   padding: 0;
+   display: flex;
+   flex-direction: column;
+@@ -12,7 +10,7 @@
+   width: 100%;
+   overflow-y: auto;
+-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
++  font-family: var(--font-family);
+   box-sizing: border-box;
+   border-radius: 0;
+   box-shadow: none;
+   border: none;
+   margin: 0 !important;
++  color: var(--vscode-text);
+ }
+
+@@ .. @@
+ /* Welcome header */
+ .main-header {
+-  padding: 24px 32px 16px 32px;
+-  background: rgba(255, 255, 255, 0.2);
+-  backdrop-filter: blur(10px);
+-  -webkit-backdrop-filter: blur(10px);
+-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+-  border-radius: 12px 12px 0 0;
++  padding: var(--space-xl) var(--space-xl) var(--space-lg) var(--space-xl);
++  background: var(--vscode-bg-alt);
++  border-bottom: 1px solid var(--vscode-border);
++  border-radius: 0;
+ }
+
+ .main-greeting {
+   margin: 0;
+ }
+
+ .main-greeting h1 {
+   font-size: 32px;
+   font-weight: 400;
+-  color: #1a1a1a;
++  color: var(--vscode-text-primary);
+   margin: 0 0 8px 0;
+   letter-spacing: -0.02em;
+ }
+
+ .main-subtitle {
+   font-size: 16px;
+-  color: #5f6368;
++  color: var(--vscode-text-muted);
+   margin: 0;
+   font-weight: 400;
+ }

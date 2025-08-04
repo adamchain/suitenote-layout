@@ -1,0 +1,530 @@
+/* VS Code + Microsoft 365 Copilot Mixed Design System */
+
+:root {
+  /* VS Code Dark Theme Colors */
+  --vscode-bg: #1e1e1e;
+  --vscode-bg-alt: #2d2d30;
+  --vscode-bg-elevated: #252526;
+  --vscode-bg-hover: #2a2d2e;
+  --vscode-sidebar-bg: #252526;
+  --vscode-activitybar-bg: #333333;
+  --vscode-panel-bg: #1e1e1e;
+  --vscode-editor-bg: #1e1e1e;
+  
+  /* Text Colors */
+  --vscode-text: #cccccc;
+  --vscode-text-primary: #ffffff;
+  --vscode-text-muted: #969696;
+  --vscode-text-inverse: #000000;
+  
+  /* Border Colors */
+  --vscode-border: #3c3c3c;
+  --vscode-border-light: #464647;
+  
+  /* Microsoft 365 Copilot Accent Colors */
+  --copilot-primary: #0078d4;
+  --copilot-primary-hover: #106ebe;
+  --copilot-primary-light: rgba(0, 120, 212, 0.1);
+  --copilot-secondary: #6264a7;
+  --copilot-accent: #8764b8;
+  
+  /* Fluent Design Elements */
+  --fluent-radius: 4px;
+  --fluent-radius-lg: 8px;
+  --fluent-shadow: 0 2px 4px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.12);
+  --fluent-shadow-elevated: 0 4px 8px rgba(0, 0, 0, 0.18), 0 0 4px rgba(0, 0, 0, 0.15);
+  
+  /* Typography - Segoe UI (Microsoft) */
+  --font-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-family-mono: 'Cascadia Code', 'SF Mono', Monaco, 'Consolas', 'Ubuntu Mono', monospace;
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  
+  /* Transitions */
+  --transition-fast: 0.1s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow: 0.3s ease;
+}
+
+/* Global Styles */
+body, html {
+  font-family: var(--font-family);
+  background: var(--vscode-bg);
+  color: var(--vscode-text);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Main Layout Container - VS Code Style */
+.vs-layout {
+  display: grid;
+  grid-template-rows: 30px 1fr 22px; /* Title bar, main content, status bar */
+  grid-template-columns: 48px 280px 1fr 320px; /* Activity bar, sidebar, editor, auxiliary panel */
+  height: 100vh;
+  background: var(--vscode-bg);
+  color: var(--vscode-text);
+  font-family: var(--font-family);
+}
+
+/* VS Code Title Bar */
+.vs-title-bar {
+  grid-row: 1;
+  grid-column: 1 / -1;
+  background: var(--vscode-bg-alt);
+  border-bottom: 1px solid var(--vscode-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-md);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--vscode-text-muted);
+  user-select: none;
+  -webkit-app-region: drag;
+}
+
+.title-bar-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.app-title {
+  font-weight: 600;
+  color: var(--vscode-text);
+}
+
+.workspace-indicator {
+  background: var(--copilot-primary);
+  color: white;
+  padding: 2px 8px;
+  border-radius: var(--fluent-radius);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* VS Code Activity Bar */
+.vs-activity-bar {
+  grid-row: 2;
+  grid-column: 1;
+  background: var(--vscode-activitybar-bg);
+  border-right: 1px solid var(--vscode-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-md) 0;
+  gap: var(--space-sm);
+}
+
+.activity-item {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vscode-text-muted);
+  cursor: pointer;
+  border-radius: var(--fluent-radius);
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.activity-item:hover {
+  background: var(--vscode-bg-hover);
+  color: var(--vscode-text);
+}
+
+.activity-item.active {
+  color: var(--vscode-text-primary);
+  background: var(--vscode-bg-hover);
+}
+
+.activity-item.active::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 16px;
+  background: var(--copilot-primary);
+  border-radius: 1px;
+}
+
+/* Left Panel - VS Code Explorer + Copilot Enhancements */
+.vs-layout .left-panel {
+  grid-row: 2;
+  grid-column: 2;
+  background: var(--vscode-sidebar-bg);
+  border-right: 1px solid var(--vscode-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Main Editor Area */
+.vs-layout .main-section {
+  grid-row: 2;
+  grid-column: 3;
+  background: var(--vscode-editor-bg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Right Panel - Copilot Integration */
+.vs-layout .right-panel {
+  grid-row: 2;
+  grid-column: 4;
+  background: var(--vscode-sidebar-bg);
+  border-left: 1px solid var(--vscode-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* VS Code Status Bar */
+.vs-status-bar {
+  grid-row: 3;
+  grid-column: 1 / -1;
+  background: var(--copilot-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-md);
+  font-size: 12px;
+  gap: var(--space-lg);
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 2px var(--space-xs);
+  border-radius: var(--fluent-radius);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.status-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.status-left,
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.status-right {
+  margin-left: auto;
+}
+
+/* Copilot Integration Styles */
+.copilot-badge {
+  background: linear-gradient(135deg, var(--copilot-accent), var(--copilot-secondary));
+  color: white;
+  padding: 4px var(--space-sm);
+  border-radius: var(--fluent-radius-lg);
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  box-shadow: var(--fluent-shadow);
+}
+
+.copilot-indicator {
+  width: 6px;
+  height: 6px;
+  background: #00ff88;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Panel Headers - Fluent Design */
+.panel-header {
+  background: var(--vscode-bg-alt);
+  border-bottom: 1px solid var(--vscode-border);
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 35px;
+}
+
+.panel-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--vscode-text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.panel-actions {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.panel-action {
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  color: var(--vscode-text-muted);
+  cursor: pointer;
+  border-radius: var(--fluent-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.panel-action:hover {
+  background: var(--vscode-bg-hover);
+  color: var(--vscode-text);
+}
+
+/* Tab System - VS Code Style */
+.tab-container {
+  background: var(--vscode-bg-alt);
+  border-bottom: 1px solid var(--vscode-border);
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  min-height: 35px;
+}
+
+.tab {
+  background: var(--vscode-bg-alt);
+  border: none;
+  border-right: 1px solid var(--vscode-border);
+  color: var(--vscode-text-muted);
+  padding: 0 var(--space-md);
+  height: 35px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-size: 13px;
+  min-width: 120px;
+  max-width: 200px;
+  position: relative;
+}
+
+.tab:hover {
+  background: var(--vscode-bg-hover);
+  color: var(--vscode-text);
+}
+
+.tab.active {
+  background: var(--vscode-editor-bg);
+  color: var(--vscode-text-primary);
+  border-bottom: 2px solid var(--copilot-primary);
+}
+
+.tab-close {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: var(--fluent-radius);
+  opacity: 0;
+  transition: var(--transition-fast);
+}
+
+.tab:hover .tab-close {
+  opacity: 1;
+}
+
+.tab-close:hover {
+  background: var(--vscode-bg-hover);
+}
+
+/* Fluent Design Cards */
+.fluent-card {
+  background: var(--vscode-bg-elevated);
+  border: 1px solid var(--vscode-border);
+  border-radius: var(--fluent-radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--fluent-shadow);
+  transition: var(--transition-normal);
+}
+
+.fluent-card:hover {
+  box-shadow: var(--fluent-shadow-elevated);
+  transform: translateY(-2px);
+}
+
+/* Microsoft 365 Button Styles */
+.ms-button {
+  background: var(--copilot-primary);
+  color: white;
+  border: none;
+  border-radius: var(--fluent-radius);
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.ms-button:hover {
+  background: var(--copilot-primary-hover);
+  transform: translateY(-1px);
+}
+
+.ms-button:active {
+  transform: translateY(0);
+}
+
+.ms-button.secondary {
+  background: var(--vscode-bg-elevated);
+  color: var(--vscode-text);
+  border: 1px solid var(--vscode-border);
+}
+
+.ms-button.secondary:hover {
+  background: var(--vscode-bg-hover);
+  border-color: var(--copilot-primary);
+}
+
+/* Collapsed States */
+.vs-layout.left-collapsed {
+  grid-template-columns: 48px 48px 1fr 320px;
+}
+
+.vs-layout.right-collapsed {
+  grid-template-columns: 48px 280px 1fr 48px;
+}
+
+.vs-layout.both-collapsed {
+  grid-template-columns: 48px 48px 1fr 48px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .vs-layout {
+    grid-template-columns: 48px 240px 1fr 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vs-layout {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+  }
+  
+  .vs-activity-bar,
+  .vs-title-bar,
+  .vs-status-bar {
+    display: none;
+  }
+  
+  .left-panel,
+  .right-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    width: 80%;
+    max-width: 320px;
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal);
+  }
+  
+  .left-panel.mobile-open,
+  .right-panel.mobile-open {
+    transform: translateX(0);
+  }
+  
+  .right-panel {
+    right: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* Scrollbar Styling - Dark Theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--vscode-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vscode-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vscode-text-muted);
+}
+
+/* Focus Styles */
+*:focus-visible {
+  outline: 2px solid var(--copilot-primary);
+  outline-offset: 2px;
+}
+
+/* Selection Styles */
+::selection {
+  background: var(--copilot-primary-light);
+  color: var(--vscode-text-primary);
+}
+
+/* Animation for smooth interactions */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --vscode-border: #ffffff;
+    --vscode-text-muted: #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

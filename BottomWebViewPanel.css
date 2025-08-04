@@ -1,18 +1,21 @@
+/* VS Code + Microsoft 365 Copilot Bottom WebView Panel */
+
 .bottom-webview-panel {
   position: fixed;
   bottom: 0;
-  left: 300px; /* Account for left panel width */
-  right: 320px; /* Account for right panel width */
-  background: var(--vscode-bg);
+  left: 300px;
+  right: 320px;
+  background: var(--vscode-panel-bg);
   border-top: 1px solid var(--vscode-border);
   border-left: 1px solid var(--vscode-border);
   border-right: 1px solid var(--vscode-border);
-  box-shadow: var(--vscode-shadow);
+  box-shadow: var(--fluent-shadow);
   z-index: 50;
   display: flex;
   flex-direction: column;
-  transition: var(--vscode-transition);
-  font-family: var(--vscode-font-family);
+  transition: var(--transition-normal);
+  font-family: var(--font-family);
+  color: var(--vscode-text);
 }
 
 .bottom-webview-panel.collapsed {
@@ -41,7 +44,7 @@
   font-size: 13px;
   color: var(--vscode-text-muted);
   font-weight: 500;
-  transition: var(--vscode-transition);
+  transition: var(--transition-normal);
 }
 
 .panel-trigger:hover {
@@ -58,11 +61,11 @@
   top: -2px;
   left: 0;
   z-index: 10;
-  transition: var(--vscode-transition);
+  transition: var(--transition-normal);
 }
 
 .resize-handle:hover {
-  background: var(--vscode-blue);
+  background: var(--copilot-primary);
 }
 
 .panel-header {
@@ -97,26 +100,26 @@
   align-items: center;
   gap: 6px;
   padding: 4px 8px;
-  background: var(--vscode-bg);
+  background: var(--vscode-bg-elevated);
   border: 1px solid var(--vscode-border);
-  border-radius: var(--vscode-radius);
+  border-radius: var(--fluent-radius);
   cursor: pointer;
   font-size: 12px;
   color: var(--vscode-text-muted);
-  transition: var(--vscode-transition);
+  transition: var(--transition-normal);
   white-space: nowrap;
   max-width: 150px;
 }
 
 .tab:hover {
-  border-color: var(--vscode-blue);
+  border-color: var(--copilot-primary);
   color: var(--vscode-text);
 }
 
 .tab.active {
-  background: var(--vscode-blue-light);
-  border-color: var(--vscode-blue);
-  color: var(--vscode-blue);
+  background: var(--copilot-primary-light);
+  border-color: var(--copilot-primary);
+  color: var(--copilot-primary);
 }
 
 .tab span {
@@ -137,7 +140,7 @@
   align-items: center;
   justify-content: center;
   opacity: 0.6;
-  transition: var(--vscode-transition);
+  transition: var(--transition-normal);
 }
 
 .tab-close:hover {
@@ -158,8 +161,8 @@
   color: var(--vscode-text-muted);
   cursor: pointer;
   padding: 6px;
-  border-radius: var(--vscode-radius);
-  transition: var(--vscode-transition);
+  border-radius: var(--fluent-radius);
+  transition: var(--transition-normal);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -173,7 +176,7 @@
 .panel-content {
   flex: 1;
   overflow: hidden;
-  background: var(--vscode-bg);
+  background: var(--vscode-panel-bg);
 }
 
 .empty-webview {
@@ -205,19 +208,19 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: var(--vscode-blue);
+  background: var(--copilot-primary);
   color: white;
   border: none;
-  border-radius: var(--vscode-radius);
+  border-radius: var(--fluent-radius);
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
-  transition: var(--vscode-transition);
-  font-family: var(--vscode-font-family);
+  transition: var(--transition-normal);
+  font-family: var(--font-family);
 }
 
 .add-webview-btn:hover {
-  background: var(--vscode-blue-dark);
+  background: var(--copilot-primary-hover);
 }
 
 /* Scrollbar styling for tabs */
@@ -280,18 +283,18 @@
   }
   
   .tab {
-    min-height: 44px; /* Touch-friendly */
+    min-height: 44px;
     padding: 8px 12px;
   }
   
   .action-btn {
-    min-height: 44px; /* Touch-friendly */
+    min-height: 44px;
     min-width: 44px;
     padding: 12px;
   }
   
   .add-webview-btn {
-    min-height: 44px; /* Touch-friendly */
+    min-height: 44px;
     padding: 12px 16px;
   }
 }

@@ -1,16 +1,18 @@
-/* Vertical Action Sidebar - Google Docs Style */
+/* VS Code + Microsoft 365 Copilot Vertical Action Sidebar */
+
 .vertical-action-sidebar {
   position: relative;
   width: 44px;
   height: 100%;
-  border-right: 1px solid #e8eaed;
+  border-right: 1px solid var(--vscode-border);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 8px 0;
   z-index: 10;
-  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-family);
   flex-shrink: 0;
+  background: var(--vscode-sidebar-bg);
 }
 
 .vertical-action-buttons {
@@ -25,21 +27,27 @@
   width: 36px;
   height: 36px;
   padding: 4px;
-  border: #f9f9f9;
-  background: #f9f9f9;
+  border: none;
+  background: var(--vscode-bg-elevated);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: var(--transition-normal);
   position: relative;
   overflow: visible;
   font-family: inherit;
+  border-radius: var(--fluent-radius);
+  border: 1px solid var(--vscode-border);
+  color: var(--vscode-text-muted);
 }
 
 .vertical-action-btn:hover {
   transform: translateX(2px);
-  box-shadow: 0 2px 8px rgba(60, 64, 67, 0.15);
+  box-shadow: var(--fluent-shadow-elevated);
+  background: var(--vscode-bg-hover);
+  color: var(--vscode-text);
+  border-color: var(--copilot-primary);
 }
 
 .vertical-action-btn:active {
@@ -47,13 +55,13 @@
 }
 
 .vertical-action-btn.active {
-  background: #1a73e8;
-  color: #ffffff;
-  border-color: #1a73e8;
+  background: var(--copilot-primary);
+  color: white;
+  border-color: var(--copilot-primary);
 }
 
 .vertical-action-btn.active svg {
-  color: #ffffff;
+  color: white;
 }
 
 .vertical-action-btn svg {
@@ -94,19 +102,21 @@
   left: 100%;
   top: 50%;
   transform: translateY(-50%);
-  background: #323130;
-  color: #ffffff;
+  background: var(--vscode-bg-elevated);
+  color: var(--vscode-text);
   padding: 6px 8px;
-  border-radius: 4px;
+  border-radius: var(--fluent-radius);
   font-size: 12px;
   font-weight: 400;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.2s ease;
+  transition: var(--transition-normal);
   margin-left: 8px;
   z-index: 1000;
   pointer-events: none;
+  border: 1px solid var(--vscode-border);
+  box-shadow: var(--fluent-shadow);
 }
 
 .action-tooltip::before {
@@ -116,7 +126,7 @@
   left: -4px;
   transform: translateY(-50%);
   border: 4px solid transparent;
-  border-right-color: #323130;
+  border-right-color: var(--vscode-bg-elevated);
 }
 
 .vertical-action-btn:hover .action-tooltip {
@@ -129,7 +139,7 @@
 .action-separator {
   width: 24px;
   height: 1px;
-  background: #e8eaed;
+  background: var(--vscode-border);
   margin: 4px 0;
   flex-shrink: 0;
 }
@@ -170,18 +180,18 @@
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   .vertical-action-sidebar {
-    border-right-color: #000000;
+    border-right-color: var(--vscode-text);
   }
 
   .vertical-action-btn {
-    border-color: #000000;
+    border-color: var(--vscode-text);
   }
 
   .vertical-action-btn:hover {
-    background: #f0f0f0;
+    background: var(--vscode-bg-hover);
   }
 
   .action-separator {
-    background: #000000;
+    background: var(--vscode-text);
   }
 }

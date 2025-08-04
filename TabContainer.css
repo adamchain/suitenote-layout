@@ -1,12 +1,13 @@
-/* Modern VS Code + ChatGPT Tab Container Styling */
+/* VS Code + Microsoft 365 Copilot Tab Container */
 
 .vscode-tab-container {
   display: flex;
   flex-direction: column;
   height: 100%;
-  font-family: var(--vscode-font-family);
+  font-family: var(--font-family);
   overflow: hidden;
-
+  background: var(--vscode-editor-bg);
+  color: var(--vscode-text);
 }
 
 .vscode-tab-container.no-tabs {
@@ -23,26 +24,23 @@
   position: relative;
   z-index: 10;
   box-shadow: none;
+  background: var(--vscode-bg-alt);
 }
 
 .vscode-tab-list {
   display: flex;
   flex: 1;
   overflow-x: auto;
-  background: #f9f9f9;
-
+  background: var(--vscode-bg-alt);
   overflow-y: hidden;
   scrollbar-width: none;
-  /* Firefox */
   -ms-overflow-style: none;
-  /* IE/Edge */
   scroll-behavior: smooth;
   position: relative;
 }
 
 .vscode-tab-list::-webkit-scrollbar {
   display: none;
-  /* Chrome/Safari */
 }
 
 /* Individual Tab Styling */
@@ -59,7 +57,7 @@
   min-width: 120px;
   max-width: 200px;
   position: relative;
-  transition: var(--vscode-transition);
+  transition: var(--transition-normal);
   color: var(--vscode-text-muted);
   font-size: 13px;
   white-space: nowrap;
@@ -73,20 +71,20 @@
 }
 
 .vscode-tab:focus-visible {
-  box-shadow: var(--vscode-focus-ring);
+  box-shadow: 0 0 0 2px var(--copilot-primary);
   z-index: 1;
 }
 
 .vscode-tab.active {
-  background: var(--vscode-bg);
-  color: var(--vscode-text);
-  border-bottom: 2px solid black;
+  background: var(--vscode-editor-bg);
+  color: var(--vscode-text-primary);
+  border-bottom: 2px solid var(--copilot-primary);
   border-right-color: var(--vscode-border);
   z-index: 2;
 }
 
 .vscode-tab.active:hover {
-  background: var(--vscode-bg);
+  background: var(--vscode-editor-bg);
 }
 
 /* Drag and Drop States */
@@ -94,12 +92,12 @@
   opacity: 0.6;
   transform: rotate(1deg);
   z-index: 100;
-  box-shadow: var(--vscode-shadow-md);
+  box-shadow: var(--fluent-shadow-elevated);
 }
 
 .vscode-tab.drag-over {
-  border-left: 2px solid var(--chatgpt-primary);
-  background: var(--chatgpt-primary-light);
+  border-left: 2px solid var(--copilot-primary);
+  background: var(--copilot-primary-light);
 }
 
 /* Tab Icon */
@@ -110,11 +108,11 @@
   flex-shrink: 0;
   color: var(--vscode-text-muted);
   opacity: 0.8;
-  transition: var(--vscode-transition);
+  transition: var(--transition-normal);
 }
 
 .vscode-tab.active .vscode-tab-icon {
-  color: var(--chatgpt-primary);
+  color: var(--copilot-primary);
   opacity: 1;
 }
 
@@ -139,12 +137,12 @@
 
 .vscode-tab.active .vscode-tab-title {
   font-weight: 500;
-  color: var(--vscode-text);
+  color: var(--vscode-text-primary);
 }
 
 /* Modified Indicator */
 .vscode-tab-modified {
-  color: var(--chatgpt-primary);
+  color: var(--copilot-primary);
   font-size: 16px;
   line-height: 1;
   font-weight: bold;
@@ -153,12 +151,9 @@
 }
 
 @keyframes pulse {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 1;
   }
-
   50% {
     opacity: 0.6;
   }
@@ -173,10 +168,10 @@
   border: none;
   cursor: pointer;
   padding: 4px;
-  border-radius: var(--vscode-radius-sm);
+  border-radius: var(--fluent-radius);
   color: var(--vscode-text-muted);
   opacity: 0;
-  transition: var(--vscode-transition);
+  transition: var(--transition-normal);
   flex-shrink: 0;
   margin-left: 2px;
   width: 20px;
@@ -213,38 +208,9 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  background: var(--vscode-bg);
+  background: var(--vscode-editor-bg);
   position: relative;
   min-height: 0;
-}
-
-/* ChatGPT-inspired enhancements */
-.chatgpt-enhanced .vscode-tab-bar {
-  background: var(--chatgpt-surface);
-  border-bottom: 1px solid var(--chatgpt-border);
-}
-
-.chatgpt-enhanced .vscode-tab {
-  background: var(--chatgpt-surface);
-  border-right: 1px solid var(--chatgpt-border);
-  transition: var(--vscode-transition);
-}
-
-.chatgpt-enhanced .vscode-tab:hover {
-  background: var(--chatgpt-surface-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(74, 131, 198, 0.1);
-}
-
-.chatgpt-enhanced .vscode-tab.active {
-  background: var(--vscode-bg);
-  border-bottom: 2px solid var(--chatgpt-primary);
-  box-shadow: 0 2px 8px rgba(74, 131, 198, 0.15);
-}
-
-.chatgpt-enhanced .vscode-tab.active:hover {
-  background: var(--vscode-bg);
-  transform: none;
 }
 
 /* Custom Scrollbar for Tab List */
@@ -275,7 +241,6 @@
 @media (max-width: 768px) {
   .vscode-tab-bar {
     min-height: 44px;
-    /* Touch-friendly height */
   }
 
   .vscode-tab {
@@ -287,16 +252,11 @@
     gap: 4px;
   }
 
-  .vscode-tab-icon {
-    /* Slightly larger icons for mobile */
-  }
-
   .vscode-tab-close {
     width: 28px;
     height: 28px;
     padding: 6px;
     opacity: 1;
-    /* Always visible on mobile */
   }
 
   .vscode-tab-title {
@@ -319,7 +279,7 @@
   height: 100%;
   background: linear-gradient(90deg,
       transparent,
-      var(--chatgpt-primary-light),
+      var(--copilot-primary-light),
       transparent);
   animation: tab-loading-shimmer 1.5s infinite;
 }
@@ -328,7 +288,6 @@
   0% {
     left: -100%;
   }
-
   100% {
     left: 100%;
   }
@@ -345,7 +304,6 @@
     transform: translateY(-4px);
     max-width: 0;
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -359,7 +317,7 @@
 }
 
 .vscode-tab:focus-visible {
-  outline: 2px solid var(--chatgpt-primary);
+  outline: 2px solid var(--copilot-primary);
   outline-offset: -2px;
   z-index: 10;
 }
@@ -371,18 +329,17 @@
   }
 
   .vscode-tab.active {
-    border: 2px solid var(--chatgpt-primary);
+    border: 2px solid var(--copilot-primary);
   }
 
   .vscode-tab-close:hover {
     background: currentColor;
-    color: var(--vscode-bg);
+    color: var(--vscode-editor-bg);
   }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-
   .vscode-tab,
   .vscode-tab-close,
   .vscode-tab-icon {
@@ -392,15 +349,11 @@
   .vscode-tab-modified {
     animation: none;
   }
-
-  .chatgpt-enhanced .vscode-tab:hover {
-    transform: none;
-  }
 }
 
 /* Empty state when no tabs */
 .vscode-tab-container.no-tabs .vscode-tab-content {
-  background: var(--vscode-bg);
+  background: var(--vscode-editor-bg);
 }
 
 /* Tab overflow gradient fade */
@@ -417,12 +370,12 @@
 
 .vscode-tab-list::before {
   left: 0;
-  background: linear-gradient(to right, var(--vscode-bg), transparent);
+  background: linear-gradient(to right, var(--vscode-bg-alt), transparent);
 }
 
 .vscode-tab-list::after {
   right: 0;
-  background: linear-gradient(to left, var(--vscode-bg), transparent);
+  background: linear-gradient(to left, var(--vscode-bg-alt), transparent);
 }
 
 /* Ensure smooth scrolling behavior */

@@ -1,61 +1,62 @@
+/* VS Code + Microsoft 365 Copilot Todos List */
+
 .todos-list {
   display: flex;
   flex-direction: column;
-  background: var(--vscode-bg);
+  background: var(--vscode-sidebar-bg);
   height: 100%;
-  font-family: var(--vscode-font-family);
-  border-radius: var(--vscode-radius);
-  box-shadow: var(--vscode-shadow);
-  border: 1px solid var(--vscode-border);
+  font-family: var(--font-family);
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  color: var(--vscode-text);
 }
-
 
 .todos-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: var(--space-lg) var(--space-xl);
   background: var(--vscode-bg-alt);
   border-bottom: 1px solid var(--vscode-border);
   font-size: 15px;
   font-weight: 600;
   color: var(--vscode-text);
-  border-radius: var(--vscode-radius) var(--vscode-radius) 0 0;
+  border-radius: 0;
 }
-
 
 .create-todo-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: var(--vscode-blue);
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--copilot-primary);
   color: white;
-  border: 1px solid var(--vscode-blue);
-  border-radius: var(--vscode-radius);
+  border: 1px solid var(--copilot-primary);
+  border-radius: var(--fluent-radius);
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
-  transition: var(--vscode-transition);
+  transition: var(--transition-normal);
   width: 100%;
   justify-content: center;
-  box-shadow: var(--vscode-shadow-sm);
-  font-family: var(--vscode-font-family);
+  box-shadow: var(--fluent-shadow);
+  font-family: var(--font-family);
 }
 
 .create-todo-btn:hover {
-  background: var(--vscode-blue-dark);
+  background: var(--copilot-primary-hover);
   color: white;
-  border-color: var(--vscode-blue-dark);
+  border-color: var(--copilot-primary-hover);
   transform: translateY(-1px);
-  box-shadow: var(--vscode-shadow);
+  box-shadow: var(--fluent-shadow-elevated);
 }
 
 .todos-content {
   flex: 1;
   overflow-y: auto;
-  padding: 16px;
-  background: var(--vscode-bg);
+  padding: var(--space-lg);
+  background: var(--vscode-sidebar-bg);
 }
 
 .empty-state {
@@ -88,43 +89,41 @@
   gap: 12px;
 }
 
-
 .todo-item {
   display: flex;
   flex-direction: column;
-  background: var(--vscode-bg);
+  background: var(--vscode-bg-elevated);
   border: 1px solid var(--vscode-border);
-  border-radius: var(--vscode-radius);
-  box-shadow: var(--vscode-shadow);
+  border-radius: var(--fluent-radius-lg);
+  box-shadow: var(--fluent-shadow);
   cursor: pointer;
-  transition: var(--vscode-transition);
+  transition: var(--transition-normal);
   position: relative;
   overflow: hidden;
 }
 
-
 .todo-item:hover {
-  box-shadow: var(--vscode-shadow-hover);
+  box-shadow: var(--fluent-shadow-elevated);
   background: var(--vscode-bg-hover);
   color: var(--vscode-text);
-  border-color: var(--vscode-blue);
+  border-color: var(--copilot-primary);
   transform: translateY(-2px);
 }
 
 .todo-item.selected {
-  box-shadow: var(--vscode-focus-ring);
-  border-color: var(--vscode-blue);
+  box-shadow: 0 0 0 2px var(--copilot-primary);
+  border-color: var(--copilot-primary);
 }
 
 .todo-item.overdue {
-  border-left: 3px solid var(--vscode-error);
+  border-left: 3px solid #ff3b30;
 }
 
 .todo-header {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 16px 12px 16px;
+  padding: var(--space-lg) var(--space-lg) var(--space-md) var(--space-lg);
 }
 
 .todo-icon {
@@ -133,9 +132,9 @@
   justify-content: center;
   width: 24px;
   height: 24px;
-  color: var(--vscode-blue);
-  background: var(--vscode-blue-light);
-  border-radius: 6px;
+  color: var(--copilot-primary);
+  background: var(--copilot-primary-light);
+  border-radius: var(--fluent-radius);
 }
 
 .todo-title {
@@ -160,7 +159,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 0 16px 12px 16px;
+  padding: 0 var(--space-lg) var(--space-md) var(--space-lg);
 }
 
 .progress-bar {
@@ -173,9 +172,9 @@
 
 .progress-fill {
   height: 100%;
-  background: var(--vscode-blue);
+  background: var(--copilot-primary);
   border-radius: 2px;
-  transition: var(--vscode-transition);
+  transition: var(--transition-normal);
 }
 
 .progress-text {
@@ -190,7 +189,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 0 16px 16px 16px;
+  padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
 }
 
 .due-date {
@@ -201,13 +200,13 @@
   color: var(--vscode-text-muted);
   background: var(--vscode-bg-alt);
   padding: 4px 8px;
-  border-radius: 6px;
+  border-radius: var(--fluent-radius);
   font-weight: 500;
 }
 
 .due-date.overdue {
-  color: var(--vscode-error);
-  background: var(--vscode-error-light);
+  color: #ff3b30;
+  background: rgba(255, 59, 48, 0.1);
 }
 
 .update-date {
@@ -220,8 +219,8 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  color: var(--vscode-error);
-  background: var(--vscode-error-light);
+  color: #ff3b30;
+  background: rgba(255, 59, 48, 0.1);
   border-radius: 50%;
   padding: 4px;
   width: 24px;
@@ -237,8 +236,8 @@
   align-items: flex-start;
   gap: 12px;
   padding: 8px 16px;
-  border-radius: 8px;
-  transition: var(--vscode-transition);
+  border-radius: var(--fluent-radius-lg);
+  transition: var(--transition-normal);
   cursor: pointer;
   margin: 0 -8px;
 }
@@ -265,19 +264,19 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: var(--vscode-transition);
+  transition: var(--transition-normal);
   margin-top: 1px;
   flex-shrink: 0;
 }
 
 .todo-list-checkbox.checked {
-  background: var(--vscode-blue);
-  border-color: var(--vscode-blue);
+  background: var(--copilot-primary);
+  border-color: var(--copilot-primary);
   color: white;
 }
 
 .todo-list-checkbox:hover {
-  border-color: var(--vscode-blue);
+  border-color: var(--copilot-primary);
 }
 
 .todo-list-text {
@@ -313,10 +312,9 @@
   }
 
   .create-todo-btn {
-    padding: 12px 16px; /* Increased for touch targets */
+    padding: 12px 16px;
     font-size: 16px;
-    /* Prevent zoom on iOS */
-    min-height: 44px; /* Touch-friendly minimum */
+    min-height: 44px;
   }
 
   .todos-content {
@@ -324,7 +322,7 @@
   }
 
   .todo-item {
-    border-radius: var(--vscode-radius);
+    border-radius: var(--fluent-radius-lg);
   }
 
   .todo-header {
@@ -333,7 +331,6 @@
 
   .todo-title {
     font-size: 17px;
-    /* Better readability on mobile */
   }
 
   .todo-progress {
@@ -345,69 +342,16 @@
   }
 
   .todo-list-item {
-    padding: 12px 14px; /* Increased for touch targets */
-    min-height: 44px; /* Touch-friendly minimum */
+    padding: 12px 14px;
+    min-height: 44px;
   }
 
   .todo-list-text {
     font-size: 16px;
-    /* Prevent zoom on iOS */
   }
 
   .todo-list-checkbox {
-    min-width: 44px; /* Touch-friendly tap target */
+    min-width: 44px;
     min-height: 44px;
-  }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .todos-list {
-    background: #000000;
-  }
-
-  .todos-header {
-    border-bottom-color: #38383a;
-  }
-
-  .todo-item {
-    background: #1c1c1e;
-  }
-
-  .todo-title,
-  .todo-list-text {
-    color: #ffffff;
-  }
-
-  .empty-state p {
-    color: #ffffff;
-  }
-
-  .empty-state span {
-    color: #8e8e93;
-  }
-
-  .progress-bar {
-    background: #38383a;
-  }
-
-  .due-date {
-    background: #38383a;
-  }
-
-  .todo-list-item:hover {
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  .todo-list-checkbox {
-    border-color: #48484a;
-  }
-
-  .todo-list-checkbox:hover {
-    border-color: #007aff;
-  }
-
-  .todo-icon {
-    background: rgba(0, 122, 255, 0.2);
   }
 }

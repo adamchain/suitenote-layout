@@ -1,5 +1,6 @@
 @@ .. @@
    return (
+   )
 -    <div className="vs-layout">
 +    <div className="vs-layout fade-in">
 +      {/* VS Code Title Bar */}

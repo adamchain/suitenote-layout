@@ -1,11 +1,11 @@
-/* Apple Intelligence Todos List */
+/* Apple Monterey Style Todos List - Clean & Spacious */
 
 .todos-list {
   display: flex;
   flex-direction: column;
-  background: transparent;
+  background: #ffffff;
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
   border-radius: 0;
   box-shadow: none;
   border: none;
@@ -16,49 +16,41 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 8px;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  font-size: 11px;
-  font-weight: 600;
-  color: #1d1d1f;
-  border-radius: 0;
-  min-height: 28px;
+  padding: 16px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #f2f2f7;
+  min-height: 56px;
 }
 
 .create-todo-btn {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  background: linear-gradient(135deg, #007aff 0%, #af52de 100%);
-  color: white;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #007aff;
+  color: #ffffff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.2s ease;
+  font-family: inherit;
   width: 100%;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
-  font-family: inherit;
 }
 
 .create-todo-btn:hover {
-  background: linear-gradient(135deg, #0051d5 0%, #9b51e0 100%);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 122, 255, 0.4);
+  background: #0056cc;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
 }
 
 .todos-content {
   flex: 1;
   overflow-y: auto;
-  padding: 8px;
-  background: transparent;
+  padding: 20px;
+  background: #ffffff;
 }
 
 .empty-state {
@@ -66,95 +58,102 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 32px 12px;
+  padding: 80px 32px;
   text-align: center;
   color: #8e8e93;
-  gap: 8px;
+  gap: 24px;
+}
+
+.empty-state svg {
+  color: #d1d1d6;
+  opacity: 0.6;
 }
 
 .empty-state p {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   color: #1d1d1f;
   margin: 0;
+  letter-spacing: -0.2px;
 }
 
 .empty-state span {
-  font-size: 10px;
+  font-size: 15px;
   margin: 0;
   color: #8e8e93;
+  line-height: 1.4;
 }
 
 .todos-grid {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 
 .todo-item {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: #f9f9fb;
+  border: 1px solid #e5e5e7;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
+  padding: 20px;
 }
 
 .todo-item:hover {
-  box-shadow: 0 8px 25px rgba(0, 122, 255, 0.15);
-  background: rgba(255, 255, 255, 0.95);
-  color: #1d1d1f;
-  border-color: rgba(0, 122, 255, 0.3);
-  transform: translateY(-3px);
+  background: #f2f2f7;
+  border-color: #d1d1d6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .todo-item.selected {
-  box-shadow: 0 0 0 2px #007aff;
   border-color: #007aff;
+  background: rgba(0, 122, 255, 0.05);
+  box-shadow: 0 0 0 1px #007aff;
 }
 
 .todo-item.overdue {
-  border-left: 3px solid #ff3b30;
+  border-left: 4px solid #ff3b30;
+  background: rgba(255, 59, 48, 0.02);
 }
 
 .todo-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 10px 6px 10px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .todo-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   color: #007aff;
   background: rgba(0, 122, 255, 0.1);
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .todo-title {
   flex: 1;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   color: #1d1d1f;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   line-height: 1.3;
+  letter-spacing: -0.1px;
 }
 
 .priority-dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -162,14 +161,14 @@
 .todo-progress {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 0 10px 6px 10px;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .progress-bar {
   flex: 1;
-  height: 3px;
-  background: rgba(0, 0, 0, 0.06);
+  height: 4px;
+  background: #f2f2f7;
   border-radius: 2px;
   overflow: hidden;
 }
@@ -178,11 +177,11 @@
   height: 100%;
   background: #007aff;
   border-radius: 2px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .progress-text {
-  font-size: 10px;
+  font-size: 13px;
   color: #8e8e93;
   font-weight: 500;
   white-space: nowrap;
@@ -192,19 +191,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  padding: 0 10px 8px 10px;
+  gap: 12px;
 }
 
 .due-date {
   display: flex;
   align-items: center;
-  gap: 3px;
-  font-size: 10px;
+  gap: 6px;
+  font-size: 12px;
   color: #8e8e93;
-  background: rgba(248, 250, 255, 0.8);
-  padding: 2px 6px;
-  border-radius: 6px;
+  background: #f2f2f7;
+  padding: 4px 8px;
+  border-radius: 8px;
   font-weight: 500;
 }
 
@@ -214,150 +212,125 @@
 }
 
 .update-date {
-  font-size: 10px;
+  font-size: 12px;
   color: #8e8e93;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .overdue-indicator {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 16px;
+  right: 16px;
   color: #ff3b30;
   background: rgba(255, 59, 48, 0.1);
   border-radius: 50%;
-  padding: 2px;
-  width: 16px;
-  height: 16px;
+  padding: 4px;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Apple Intelligence List Items */
-.todo-list-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 4px 8px;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  margin: 0 -4px;
-}
-
-.todo-list-item:hover {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.todo-list-item.completed {
-  opacity: 0.6;
-}
-
-.todo-list-item.completed .todo-list-text {
-  text-decoration: line-through;
-  color: #8e8e93;
-}
-
-.todo-list-checkbox {
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-top: 1px;
-  flex-shrink: 0;
-}
-
-.todo-list-checkbox.checked {
-  background: #007aff;
-  border-color: #007aff;
-  color: white;
-}
-
-.todo-list-checkbox:hover {
-  border-color: #007aff;
-}
-
-.todo-list-text {
-  flex: 1;
-  font-size: 11px;
-  line-height: 1.4;
-  color: #1d1d1f;
-  font-weight: 400;
-}
-
-/* Apple Intelligence Scrollbar Styling */
+/* Clean Scrollbar */
 .todos-content::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .todos-content::-webkit-scrollbar-track {
-  background: transparent;
+  background: #f9f9fb;
 }
 
 .todos-content::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
+  background: #d1d1d6;
+  border-radius: 4px;
 }
 
 .todos-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: #8e8e93;
 }
 
-/* Apple Intelligence Mobile Adjustments */
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .todos-header {
-    padding: 8px;
+    padding: 16px;
   }
 
   .create-todo-btn {
-    padding: 8px 12px;
-    font-size: 12px;
-    min-height: 44px;
+    padding: 12px 16px;
+    font-size: 16px;
+    min-height: 48px;
   }
 
   .todos-content {
-    padding: 4px 8px 8px 8px;
+    padding: 16px;
   }
 
   .todo-item {
-    border-radius: 8px;
+    padding: 16px;
   }
 
   .todo-header {
-    padding: 8px 8px 6px 8px;
+    margin-bottom: 12px;
   }
 
   .todo-title {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .todo-progress {
-    padding: 0 8px 6px 8px;
+    margin-bottom: 8px;
   }
 
-  .todo-meta {
-    padding: 0 8px 8px 8px;
+  .progress-text {
+    font-size: 12px;
   }
 
-  .todo-list-item {
-    padding: 8px 8px;
-    min-height: 44px;
+  .due-date {
+    font-size: 11px;
   }
 
-  .todo-list-text {
+  .empty-state {
+    padding: 60px 24px;
+  }
+
+  .empty-state p {
+    font-size: 16px;
+  }
+
+  .empty-state span {
     font-size: 14px;
   }
+}
 
-  .todo-list-checkbox {
-    min-width: 44px;
-    min-height: 44px;
+/* High Contrast Support */
+@media (prefers-contrast: high) {
+  .todo-item {
+    border-width: 2px;
+    border-color: #000000;
   }
+
+  .todo-item:hover {
+    border-color: #007aff;
+    outline: 2px solid #007aff;
+  }
+
+  .progress-bar {
+    border: 1px solid #000000;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .todo-item,
+  .create-todo-btn,
+  .progress-fill {
+    transition: none;
+  }
+}
+
+/* Clean Selection */
+::selection {
+  background: rgba(0, 122, 255, 0.2);
+  color: #1d1d1f;
 }

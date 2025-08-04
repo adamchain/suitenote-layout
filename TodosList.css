@@ -1,0 +1,413 @@
+.todos-list {
+  display: flex;
+  flex-direction: column;
+  background: var(--vscode-bg);
+  height: 100%;
+  font-family: var(--vscode-font-family);
+  border-radius: var(--vscode-radius);
+  box-shadow: var(--vscode-shadow);
+  border: 1px solid var(--vscode-border);
+}
+
+
+.todos-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--vscode-bg-alt);
+  border-bottom: 1px solid var(--vscode-border);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--vscode-text);
+  border-radius: var(--vscode-radius) var(--vscode-radius) 0 0;
+}
+
+
+.create-todo-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--vscode-blue);
+  color: white;
+  border: 1px solid var(--vscode-blue);
+  border-radius: var(--vscode-radius);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: var(--vscode-transition);
+  width: 100%;
+  justify-content: center;
+  box-shadow: var(--vscode-shadow-sm);
+  font-family: var(--vscode-font-family);
+}
+
+.create-todo-btn:hover {
+  background: var(--vscode-blue-dark);
+  color: white;
+  border-color: var(--vscode-blue-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--vscode-shadow);
+}
+
+.todos-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  background: var(--vscode-bg);
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  text-align: center;
+  color: var(--vscode-text-muted);
+  gap: 12px;
+}
+
+.empty-state p {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--vscode-text);
+  margin: 0;
+}
+
+.empty-state span {
+  font-size: 15px;
+  margin: 0;
+  color: var(--vscode-text-muted);
+}
+
+.todos-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+.todo-item {
+  display: flex;
+  flex-direction: column;
+  background: var(--vscode-bg);
+  border: 1px solid var(--vscode-border);
+  border-radius: var(--vscode-radius);
+  box-shadow: var(--vscode-shadow);
+  cursor: pointer;
+  transition: var(--vscode-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+
+.todo-item:hover {
+  box-shadow: var(--vscode-shadow-hover);
+  background: var(--vscode-bg-hover);
+  color: var(--vscode-text);
+  border-color: var(--vscode-blue);
+  transform: translateY(-2px);
+}
+
+.todo-item.selected {
+  box-shadow: var(--vscode-focus-ring);
+  border-color: var(--vscode-blue);
+}
+
+.todo-item.overdue {
+  border-left: 3px solid var(--vscode-error);
+}
+
+.todo-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 16px 12px 16px;
+}
+
+.todo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--vscode-blue);
+  background: var(--vscode-blue-light);
+  border-radius: 6px;
+}
+
+.todo-title {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--vscode-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+.priority-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.todo-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px 12px 16px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--vscode-bg-alt);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--vscode-blue);
+  border-radius: 2px;
+  transition: var(--vscode-transition);
+}
+
+.progress-text {
+  font-size: 13px;
+  color: var(--vscode-text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.todo-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 16px 16px 16px;
+}
+
+.due-date {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--vscode-text-muted);
+  background: var(--vscode-bg-alt);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.due-date.overdue {
+  color: var(--vscode-error);
+  background: var(--vscode-error-light);
+}
+
+.update-date {
+  font-size: 12px;
+  color: var(--vscode-text-muted);
+  font-weight: 400;
+}
+
+.overdue-indicator {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: var(--vscode-error);
+  background: var(--vscode-error-light);
+  border-radius: 50%;
+  padding: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Apple Reminders-style list items */
+.todo-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: var(--vscode-transition);
+  cursor: pointer;
+  margin: 0 -8px;
+}
+
+.todo-list-item:hover {
+  background: var(--vscode-bg-hover);
+}
+
+.todo-list-item.completed {
+  opacity: 0.6;
+}
+
+.todo-list-item.completed .todo-list-text {
+  text-decoration: line-through;
+  color: var(--vscode-text-muted);
+}
+
+.todo-list-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--vscode-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--vscode-transition);
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.todo-list-checkbox.checked {
+  background: var(--vscode-blue);
+  border-color: var(--vscode-blue);
+  color: white;
+}
+
+.todo-list-checkbox:hover {
+  border-color: var(--vscode-blue);
+}
+
+.todo-list-text {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--vscode-text);
+  font-weight: 400;
+}
+
+/* Scrollbar styling */
+.todos-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.todos-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.todos-content::-webkit-scrollbar-thumb {
+  background: var(--vscode-border);
+  border-radius: 3px;
+}
+
+.todos-content::-webkit-scrollbar-thumb:hover {
+  background: var(--vscode-text-muted);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .todos-header {
+    padding: 12px;
+  }
+
+  .create-todo-btn {
+    padding: 12px 16px; /* Increased for touch targets */
+    font-size: 16px;
+    /* Prevent zoom on iOS */
+    min-height: 44px; /* Touch-friendly minimum */
+  }
+
+  .todos-content {
+    padding: 6px 12px 12px 12px;
+  }
+
+  .todo-item {
+    border-radius: var(--vscode-radius);
+  }
+
+  .todo-header {
+    padding: 14px 14px 10px 14px;
+  }
+
+  .todo-title {
+    font-size: 17px;
+    /* Better readability on mobile */
+  }
+
+  .todo-progress {
+    padding: 0 14px 10px 14px;
+  }
+
+  .todo-meta {
+    padding: 0 14px 14px 14px;
+  }
+
+  .todo-list-item {
+    padding: 12px 14px; /* Increased for touch targets */
+    min-height: 44px; /* Touch-friendly minimum */
+  }
+
+  .todo-list-text {
+    font-size: 16px;
+    /* Prevent zoom on iOS */
+  }
+
+  .todo-list-checkbox {
+    min-width: 44px; /* Touch-friendly tap target */
+    min-height: 44px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .todos-list {
+    background: #000000;
+  }
+
+  .todos-header {
+    border-bottom-color: #38383a;
+  }
+
+  .todo-item {
+    background: #1c1c1e;
+  }
+
+  .todo-title,
+  .todo-list-text {
+    color: #ffffff;
+  }
+
+  .empty-state p {
+    color: #ffffff;
+  }
+
+  .empty-state span {
+    color: #8e8e93;
+  }
+
+  .progress-bar {
+    background: #38383a;
+  }
+
+  .due-date {
+    background: #38383a;
+  }
+
+  .todo-list-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .todo-list-checkbox {
+    border-color: #48484a;
+  }
+
+  .todo-list-checkbox:hover {
+    border-color: #007aff;
+  }
+
+  .todo-icon {
+    background: rgba(0, 122, 255, 0.2);
+  }
+}

@@ -1,0 +1,132 @@
+/* Bottom Action Bar - Compact pill-shaped container */
+.bottom-action-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  pointer-events: none;
+}
+
+.action-buttons {
+  display: inline-flex;
+  gap: 8px;
+  padding: 6px;
+  background: white;
+  border-radius: 9999px;
+  border: 1px solid #1f1e1d26;
+  pointer-events: auto;
+}
+
+.action-btn {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: white;
+  border: 1px solid #1f1e1d26;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: #323130;
+  position: relative;
+  overflow: hidden;
+  pointer-events: auto;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+.action-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(0, 120, 212, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.action-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.5;
+}
+
+.action-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  object-fit: contain;
+  transition: filter 0.2s ease;
+}
+
+.action-btn:hover .action-icon {
+  filter: brightness(1.15) contrast(1.1);
+}
+
+.action-btn.active .action-icon {
+  filter: brightness(1.2);
+}
+
+.action-btn:hover {
+  background: white;
+  border-color: #0078d4;
+}
+
+.action-btn:hover::before {
+  opacity: 1;
+}
+
+.action-btn:active {
+  transform: scale(0.98);
+}
+
+.action-btn.active {
+  background: #0078d4;
+  color: #ffffff;
+  border-color: #0078d4;
+}
+
+.action-btn.active svg {
+  color: #ffffff;
+}
+
+.action-label {
+  display: none;
+  /* Hidden in compact mode */
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .bottom-action-bar {
+    bottom: 16px;
+  }
+
+  .action-buttons {
+    gap: 4px;
+    padding: 3px;
+  }
+
+  .action-btn {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+  }
+
+  .action-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .action-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Floating bar - no body padding needed */

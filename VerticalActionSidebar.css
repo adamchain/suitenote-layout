@@ -1,0 +1,187 @@
+/* Vertical Action Sidebar - Google Docs Style */
+.vertical-action-sidebar {
+  position: relative;
+  width: 44px;
+  height: 100%;
+  border-right: 1px solid #e8eaed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0;
+  z-index: 10;
+  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  flex-shrink: 0;
+}
+
+.vertical-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  align-items: center;
+}
+
+.vertical-action-btn {
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  border: #f9f9f9;
+  background: #f9f9f9;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: visible;
+  font-family: inherit;
+}
+
+.vertical-action-btn:hover {
+  transform: translateX(2px);
+  box-shadow: 0 2px 8px rgba(60, 64, 67, 0.15);
+}
+
+.vertical-action-btn:active {
+  transform: translateX(1px) scale(0.98);
+}
+
+.vertical-action-btn.active {
+  background: #1a73e8;
+  color: #ffffff;
+  border-color: #1a73e8;
+}
+
+.vertical-action-btn.active svg {
+  color: #ffffff;
+}
+
+.vertical-action-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.5;
+}
+
+.action-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  object-fit: contain;
+  transition: filter 0.2s ease;
+}
+
+.spreadsheet-icon {
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.vertical-action-btn:hover .action-icon {
+  filter: brightness(1.15) contrast(1.1);
+}
+
+.vertical-action-btn.active .action-icon {
+  filter: brightness(1.2);
+}
+
+/* Tooltip */
+.action-tooltip {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #323130;
+  color: #ffffff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  margin-left: 8px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.action-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -4px;
+  transform: translateY(-50%);
+  border: 4px solid transparent;
+  border-right-color: #323130;
+}
+
+.vertical-action-btn:hover .action-tooltip {
+  opacity: 1;
+  visibility: visible;
+  margin-left: 12px;
+}
+
+/* Separator */
+.action-separator {
+  width: 24px;
+  height: 1px;
+  background: #e8eaed;
+  margin: 4px 0;
+  flex-shrink: 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .vertical-action-sidebar {
+    width: 40px;
+    padding: 6px 0;
+  }
+
+  .vertical-action-buttons {
+    gap: 4px;
+  }
+
+  .vertical-action-btn {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+  }
+
+  .vertical-action-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .action-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .action-tooltip {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .vertical-action-sidebar {
+    border-right-color: #000000;
+  }
+
+  .vertical-action-btn {
+    border-color: #000000;
+  }
+
+  .vertical-action-btn:hover {
+    background: #f0f0f0;
+  }
+
+  .action-separator {
+    background: #000000;
+  }
+}

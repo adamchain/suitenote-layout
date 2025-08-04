@@ -1,0 +1,540 @@
+.top-nav {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 100;
+  height: 40px;
+  background: #ffffff;
+  box-shadow: none;
+  border-bottom: 1px solid #e5e5e5;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #000000;
+}
+
+/* Ensure child panels fill the nav height */
+.nav-left,
+.nav-center,
+.nav-right {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  backdrop-filter: none;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  padding: 0 16px;
+  margin: 0 -16px;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #323130;
+}
+
+/* Breadcrumb pills */
+.breadcrumb {
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #605e5c;
+  font-size: 13px;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  font-weight: 500;
+}
+
+.breadcrumb:hover {
+  background: rgba(0, 120, 212, 0.08);
+  color: #0078d4;
+  transform: translateY(-1px);
+}
+
+.breadcrumb:last-child {
+  color: #323130;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.breadcrumb-separator {
+  color: #605e5c;
+}
+
+.workspace-selector {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  color: #323130;
+}
+
+.workspace-dropdown-btn {
+  background: none;
+  border: none;
+  color: #605e5c;
+  cursor: pointer;
+  padding: 4px;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.workspace-dropdown-btn:hover {
+  color: #0078d4;
+  background: rgba(0, 120, 212, 0.08);
+}
+
+.workspace-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  min-width: 240px;
+  overflow: hidden;
+  margin-top: 8px;
+  animation: fadeIn 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.workspace-dropdown-header {
+  padding: 12px 16px 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #605e5c;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.workspace-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #323130;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 4px;
+  margin: 2px 4px;
+  font-weight: 500;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.workspace-item:hover {
+  background: rgba(0, 120, 212, 0.08);
+  transform: translateY(-1px);
+}
+
+.workspace-item.active {
+  background: rgba(0, 120, 212, 0.1);
+  color: #0078d4;
+}
+
+.workspace-item.new-workspace {
+  color: #0078d4;
+  font-weight: 600;
+}
+
+.workspace-dropdown-separator {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.04);
+  margin: 4px 0;
+}
+
+.nav-center {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Only make specific AI chat panels transparent */
+.ai-bottom-panel,
+.ai-compact-header,
+.ai-chat-container,
+.ai-chat-area {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  /* sit just above base UI */
+}
+
+.view-controls {
+  display: flex;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+  overflow: hidden;
+  display: inline-flex;
+  height: 28px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.view-btn {
+  background: none;
+  border: none;
+  color: #605e5c;
+  cursor: pointer;
+  padding: 0 8px;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+}
+
+.view-btn:hover {
+  background: rgba(0, 120, 212, 0.08);
+  color: #0078d4;
+}
+
+.view-btn.active {
+  background: #0078d4;
+  color: #ffffff;
+}
+
+.nav-action {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  color: #605e5c;
+  cursor: pointer;
+  padding: 8px;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.nav-action:hover {
+  background: rgba(0, 120, 212, 0.08);
+  color: #0078d4;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 120, 212, 0.15);
+  border-color: rgba(0, 120, 212, 0.2);
+}
+
+.user-menu {
+  position: relative;
+}
+
+.user-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+  color: #323130;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.user-button:hover {
+  background: #ffffff;
+  border-color: rgba(0, 120, 212, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 120, 212, 0.15);
+}
+
+.user-name {
+  font-weight: 500;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  min-width: 220px;
+  overflow: hidden;
+  animation: fadeIn 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(249, 249, 249, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  background: #0078d4;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.user-details {
+  flex: 1;
+}
+
+.user-display-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #323130;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.user-phone {
+  font-size: 12px;
+  color: #605e5c;
+}
+
+.user-dropdown hr {
+  margin: 0;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #323130;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 4px;
+  margin: 2px 4px;
+  font-weight: 500;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.dropdown-item:hover {
+  background: rgba(0, 120, 212, 0.08);
+  transform: translateY(-1px);
+}
+
+.dropdown-item.danger {
+  color: #d13438;
+}
+
+.dropdown-item.danger:hover {
+  background: rgba(209, 52, 56, 0.08);
+  color: #d13438;
+}
+
+.ai-mode-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.ai-mode-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: #605e5c;
+  cursor: pointer;
+  padding: 0 8px;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  height: 24px;
+  border-radius: 4px;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.ai-mode-btn:hover {
+  color: #0078d4;
+  background: rgba(0, 120, 212, 0.08);
+}
+
+.ai-mode-btn .open {
+  transform: rotate(180deg);
+  transition: transform 0.2s;
+}
+
+.ai-mode-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  min-width: 140px;
+  overflow: hidden;
+  margin-top: 4px;
+  animation: fadeIn 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-mode-dropdown .dropdown-item {
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #323130;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.ai-mode-dropdown .dropdown-item:hover,
+.ai-mode-dropdown .dropdown-item.active {
+  background: rgba(0, 120, 212, 0.08);
+  color: #0078d4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-center {
+    flex: 1;
+    padding: 0 8px;
+  }
+
+  .breadcrumbs {
+    display: none;
+  }
+
+  .view-controls {
+    display: none;
+  }
+
+  .user-name {
+    display: none;
+  }
+}
+
+/* AI Query Input and Results Panel */
+.ai-query-input {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+  color: #323130;
+  width: 200px;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.ai-query-input:focus {
+  outline: none;
+  border-color: #0078d4;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2), 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.ai-query-input::placeholder {
+  color: #605e5c;
+}
+
+.ai-results {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  max-width: 320px;
+  max-height: 300px;
+  overflow: auto;
+  z-index: 1001;
+}
+
+.ai-results-item {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  font-size: 13px;
+  color: #323130;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.ai-results-item:hover {
+  background: rgba(0, 120, 212, 0.08);
+  color: #0078d4;
+  transform: translateY(-1px);
+}
+
+.ai-results-item:last-child {
+  border-bottom: none;
+}

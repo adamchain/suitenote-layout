@@ -38,83 +38,34 @@ html {
   font-family: inherit;
 }
 
-/* Clean VS Code Title Bar */
-.vs-title-bar {
+/* Enhanced VS Code Activity Bar with Vertical Actions */
+.vs-activity-bar {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  height: 28px;
-  background: var(--monterey-surface);
-  border-bottom: 1px solid var(--monterey-border-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+  width: 48px;
+  height: calc(100vh - 22px);
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(219, 147, 255, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(255, 149, 0, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 255, 0.9) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-}
-
-.title-bar-content {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--monterey-text);
-}
-
-.app-title {
-  font-weight: 600;
-  color: var(--monterey-text);
-}
-
-.workspace-indicator {
-  color: var(--monterey-text-secondary);
-}
-
-.copilot-badge {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--monterey-blue);
-  color: white;
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-
-.copilot-indicator {
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
-}
-
-/* Clean VS Code Activity Bar */
-.vs-activity-bar {
-  position: fixed;
-  top: 28px;
-  left: 0;
-  width: 48px;
-  height: calc(100vh - 28px - 22px);
-  background: var(--monterey-surface);
-  border-right: 1px solid var(--monterey-border);
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px 0;
+  padding: 8px 0;
   z-index: 100;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.03);
 }
 
 .activity-item {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   background: none;
   border: none;
-  color: var(--monterey-text-secondary);
+  color: #8e8e93;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -122,53 +73,74 @@ html {
   position: relative;
   transition: all 0.2s ease;
   border-radius: 8px;
-  margin: 2px 0;
+  margin: 1px 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .activity-item:hover {
-  background: var(--monterey-border-light);
-  color: var(--monterey-text);
+  background: rgba(255, 255, 255, 0.3);
+  color: #1d1d1f;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .activity-item.active {
-  color: var(--monterey-blue);
-  background: rgba(0, 122, 255, 0.1);
+  color: #007aff;
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.15) 0%, rgba(175, 82, 222, 0.1) 100%);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.2);
 }
 
 .activity-item.active::before {
   content: '';
   position: absolute;
-  left: -12px;
+  left: -8px;
   top: 50%;
   transform: translateY(-50%);
-  width: 2px;
+  width: 3px;
   height: 16px;
-  background: var(--monterey-blue);
+  background: linear-gradient(135deg, #007aff 0%, #af52de 100%);
   border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 8px rgba(0, 122, 255, 0.3);
 }
 
 /* Main Content Areas */
 .vs-layout .left-panel {
   position: fixed;
-  top: 28px;
+  top: 0;
   left: 48px;
   width: 280px;
-  height: calc(100vh - 28px - 22px);
-  background: var(--monterey-background);
-  border-right: 1px solid var(--monterey-border);
+  height: calc(100vh - 22px);
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(219, 147, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(255, 149, 0, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 80%, rgba(50, 173, 230, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 255, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   z-index: 10;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
 }
 
 .vs-layout .main-section {
   position: fixed;
-  top: 28px;
+  top: 0;
   left: 328px;
   right: 328px;
-  height: calc(100vh - 28px - 22px);
-  background: var(--monterey-background);
+  height: calc(100vh - 22px);
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(219, 147, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(255, 149, 0, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 90%, rgba(50, 173, 230, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.99) 0%, rgba(250, 252, 255, 0.98) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -176,12 +148,10 @@ html {
 
 .vs-layout .right-panel {
   position: fixed;
-  top: 28px;
+  top: 0;
   right: 0;
   width: 280px;
-  height: calc(100vh - 28px - 22px);
-  background: var(--monterey-background);
-  border-left: 1px solid var(--monterey-border);
+  height: calc(100vh - 22px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -256,7 +226,10 @@ html {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: var(--monterey-background);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 255, 0.9) 100%);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 .panel-header {
@@ -264,9 +237,13 @@ html {
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  background: var(--monterey-surface);
-  border-bottom: 1px solid var(--monterey-border-light);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 255, 0.8) 100%);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   min-height: 56px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .panel-title {
@@ -595,23 +572,18 @@ html {
     flex-direction: column;
   }
 
-  .vs-title-bar {
-    position: relative;
-    height: 44px;
-  }
-
   .vs-activity-bar {
     display: none;
   }
 
   .vs-layout .left-panel {
     position: fixed;
-    top: 44px;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
-    height: calc(100vh - 44px);
+    height: calc(100vh - 22px);
     transform: translateX(-100%);
     transition: all 0.3s ease;
     z-index: 1000;
@@ -626,7 +598,7 @@ html {
     top: 0;
     left: 0;
     right: 0;
-    height: calc(100vh - 44px);
+    height: calc(100vh - 22px);
     flex: 1;
   }
 

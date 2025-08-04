@@ -1,16 +1,16 @@
 /* Add Note Button - Sticky Note Style */
 .quicknotes-button,
 .add-note-btn {
-  background: #fff9b0;
-  color: #333;
+  background: linear-gradient(135deg, #edc544 0%, #e9bf45 100%);
+  color: #000000;
   border: none;
   border-radius: 10px 10px 20px 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 1.5px 0 #e6d267;
-  font-family: 'Segoe UI', 'Comic Sans MS', cursive, sans-serif;
+  box-shadow: 0 2px 8px rgba(237, 197, 68, 0.3), 0 1.5px 0 #d4a63a;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
   font-size: 1rem;
   padding: 0.75em 1.5em;
   cursor: pointer;
-  transition: box-shadow 0.2s;
+  transition: all 0.2s ease;
   position: sticky;
   bottom: 0px;
   margin: 0px;
@@ -22,11 +22,14 @@
   z-index: 100;
   margin-top: auto;
   min-height: 40px;
+  font-weight: 600;
 }
 
 .quicknotes-button:hover,
 .add-note-btn:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12), 0 2px 0 #e6d267;
+  background: linear-gradient(135deg, #e9bf45 0%, #d4a63a 100%);
+  box-shadow: 0 4px 16px rgba(237, 197, 68, 0.4), 0 2px 0 #d4a63a;
+  transform: translateY(-1px);
 }
 
 /* Modal Overlay */
@@ -48,10 +51,10 @@
 /* QuickNote Component - Sticky Note Style */
 .quicknotes-modal,
 .quicknote {
-  background: #fff9b0;
+  background: linear-gradient(135deg, #edc544 0%, #e9bf45 100%);
   border-radius: 12px 12px 24px 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.10), 0 2px 0 #e6d267;
-  font-family: 'Segoe UI', 'Comic Sans MS', cursive, sans-serif;
+  box-shadow: 0 8px 32px rgba(237, 197, 68, 0.25), 0 2px 0 #d4a63a;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
   padding: 1em;
   margin-bottom: 1em;
   min-height: 80px;
@@ -62,6 +65,8 @@
   max-height: 80vh;
   display: flex;
   flex-direction: column;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 /* Header - Minimalist */
@@ -76,9 +81,10 @@
 .quicknotes-header h3 {
   margin: 0;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
   color: #000000;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  letter-spacing: -0.2px;
 }
 
 .quicknotes-close {
@@ -112,9 +118,9 @@
 .new-note-header h4 {
   margin: 0;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 600;
   color: #000000;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
 }
 
 .current-time {
@@ -123,7 +129,7 @@
   display: flex;
   align-items: center;
   gap: 3px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
 }
 
 .quicknotes-textarea {
@@ -132,20 +138,22 @@
   padding: 8px 10px;
   border: none;
   border-radius: 2px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.5);
   font-size: 13px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
   line-height: 1.4;
   resize: vertical;
   transition: all 0.2s ease;
   margin-bottom: 10px;
   color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .quicknotes-textarea:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 0 2px rgba(146, 64, 14, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 2px rgba(237, 197, 68, 0.3);
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
 .quicknotes-textarea::placeholder {
@@ -154,22 +162,25 @@
 }
 
 .add-quicknote-btn {
-  background: #3b82f6;
-  color: white;
+  background: #000000;
+  color: #ffffff;
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 6px;
   transition: all 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
 }
 
 .add-quicknote-btn:hover:not(:disabled) {
-  background: #2563eb;
+  background: #333333;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .add-quicknote-btn:disabled {
@@ -206,13 +217,16 @@
   align-items: flex-start;
   padding: 8px 16px;
   margin: 4px 8px;
-  background: #fff9b0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 8px 8px 16px 8px;
   gap: 8px;
   transition: all 0.2s ease;
   transform: none;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08), 0 1px 0 #e6d267;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 0 rgba(237, 197, 68, 0.5);
   position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* Optional: folded corner effect */
@@ -224,20 +238,20 @@
   right: 0;
   width: 16px;
   height: 16px;
-  background: linear-gradient(135deg, #fff9b0 60%, #e6d267 100%);
+  background: linear-gradient(135deg, #edc544 60%, #d4a63a 100%);
   border-bottom-right-radius: 8px;
 }
 
 .quicknote-item:hover {
-  background: rgba(255, 255, 255, 0.6);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 100%);
   transform: scale(1.02);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 0 rgba(237, 197, 68, 0.6);
 }
 
 .quicknote-item.highlighted {
-  background: rgba(251, 191, 36, 0.3);
+  background: linear-gradient(135deg, rgba(237, 197, 68, 0.4) 0%, rgba(233, 191, 69, 0.3) 100%);
   transform: none;
-  box-shadow: 0 2px 4px rgba(251, 191, 36, 0.2);
+  box-shadow: 0 2px 8px rgba(237, 197, 68, 0.3);
 }
 
 .quicknote-content {
@@ -250,8 +264,8 @@
   color: #000000;
   margin-bottom: 4px;
   word-wrap: break-word;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  font-weight: 500;
 }
 
 .quicknote-meta {
@@ -260,7 +274,7 @@
   gap: 3px;
   color: #000000;
   font-size: 10px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
 }
 
 .quicknote-time {

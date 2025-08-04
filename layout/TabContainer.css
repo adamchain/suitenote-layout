@@ -1,35 +1,31 @@
-/* Apple Intelligence Tab Container */
+/* Apple Monterey Style Tab Container - Clean & Spacious */
 
 .vscode-tab-container {
   display: flex;
   flex-direction: column;
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
   overflow: hidden;
-  background: transparent;
+  background: #ffffff;
   color: #1d1d1f;
 }
 
 .vscode-tab-container.no-tabs {
-  background: transparent;
+  background: #ffffff;
 }
 
-/* Apple Intelligence Tab Bar */
+/* Clean Tab Bar */
 .vscode-tab-bar {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 8px;
-  padding: 4px 8px;
-  margin: 6px 8px 8px 8px;
+  background: #f9f9fb;
+  border-bottom: 1px solid #f2f2f7;
+  padding: 8px 20px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  min-height: 28px;
+  min-height: 52px;
   position: relative;
   z-index: 10;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
 }
 
 .vscode-tab-list {
@@ -42,41 +38,40 @@
   -ms-overflow-style: none;
   scroll-behavior: smooth;
   position: relative;
-  gap: 2px;
+  gap: 4px;
 }
 
 .vscode-tab-list::-webkit-scrollbar {
   display: none;
 }
 
-/* Apple Intelligence Individual Tab */
+/* Clean Individual Tab */
 .vscode-tab {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: none;
-  border-radius: 6px;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #e5e5e7;
+  border-radius: 8px;
   cursor: pointer;
   user-select: none;
-  min-width: 80px;
-  max-width: 160px;
+  min-width: 120px;
+  max-width: 200px;
   position: relative;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.2s ease;
   color: #8e8e93;
-  font-size: 11px;
+  font-size: 14px;
   white-space: nowrap;
-  height: 24px;
+  height: 36px;
   outline: none;
+  flex-shrink: 0;
 }
 
 .vscode-tab:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: #f9f9fb;
   color: #1d1d1f;
-  transform: translateY(-1px);
+  border-color: #d1d1d6;
 }
 
 .vscode-tab:focus-visible {
@@ -85,95 +80,87 @@
 }
 
 .vscode-tab.active {
-  background: linear-gradient(135deg, #007aff 0%, #af52de 100%);
-  color: white;
-  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
+  background: #007aff;
+  color: #ffffff;
+  border-color: #007aff;
   z-index: 2;
 }
 
 .vscode-tab.active:hover {
-  background: linear-gradient(135deg, #0051d5 0%, #9b51e0 100%);
+  background: #0056cc;
+  border-color: #0056cc;
 }
 
-/* Apple Intelligence Drag and Drop States */
+/* Drag and Drop States */
 .vscode-tab.dragging {
   opacity: 0.6;
   transform: rotate(1deg);
   z-index: 100;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .vscode-tab.drag-over {
   border-left: 2px solid #007aff;
-  background: rgba(0, 122, 255, 0.15);
+  background: rgba(0, 122, 255, 0.1);
 }
 
-/* Apple Intelligence Tab Icon */
+/* Clean Tab Icon */
 .vscode-tab-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   color: #8e8e93;
-  opacity: 0.8;
   transition: all 0.2s ease;
+  width: 16px;
+  height: 16px;
 }
 
 .vscode-tab.active .vscode-tab-icon {
-  color: white;
-  opacity: 1;
+  color: #ffffff;
 }
 
 .vscode-tab:hover .vscode-tab-icon {
-  opacity: 1;
   color: #1d1d1f;
 }
 
-/* Apple Intelligence Tab Title */
+.vscode-tab.active:hover .vscode-tab-icon {
+  color: #ffffff;
+}
+
+/* Clean Tab Title */
 .vscode-tab-title {
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-weight: 400;
+  font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 4px;
   min-width: 0;
   line-height: 1.2;
 }
 
 .vscode-tab.active .vscode-tab-title {
-  font-weight: 500;
-  color: white;
+  font-weight: 600;
+  color: #ffffff;
 }
 
-/* Apple Intelligence Modified Indicator */
+/* Modified Indicator */
 .vscode-tab-modified {
   color: #007aff;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1;
   font-weight: bold;
-  margin-right: 1px;
-  animation: pulse 2s infinite;
+  margin-right: 2px;
 }
 
 .vscode-tab.active .vscode-tab-modified {
-  color: white;
-}
-@keyframes pulse {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.6;
-  }
+  color: rgba(255, 255, 255, 0.8);
 }
 
-/* Apple Intelligence Close Button */
+/* Clean Close Button */
 .vscode-tab-close {
   display: flex;
   align-items: center;
@@ -181,15 +168,15 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 2px;
-  border-radius: 4px;
+  padding: 4px;
+  border-radius: 6px;
   color: #8e8e93;
   opacity: 0;
   transition: all 0.2s ease;
   flex-shrink: 0;
-  margin-left: 1px;
-  width: 16px;
-  height: 16px;
+  margin-left: 4px;
+  width: 20px;
+  height: 20px;
 }
 
 .vscode-tab:hover .vscode-tab-close {
@@ -197,9 +184,8 @@
 }
 
 .vscode-tab-close:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.1);
   color: #1d1d1f;
-  transform: scale(1.1);
 }
 
 .vscode-tab-close:active {
@@ -213,28 +199,28 @@
 
 .vscode-tab.active .vscode-tab-close:hover {
   background: rgba(255, 255, 255, 0.2);
-  color: white;
+  color: #ffffff;
 }
 
-/* Apple Intelligence Tab Content Area */
+/* Clean Tab Content Area */
 .vscode-tab-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  background: transparent;
+  background: #ffffff;
   position: relative;
   min-height: 0;
 }
 
-/* Apple Intelligence Custom Scrollbar */
+/* Clean Scrollbar */
 .vscode-tab-list {
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
+  scrollbar-color: #d1d1d6 transparent;
 }
 
 .vscode-tab-list::-webkit-scrollbar {
-  height: 2px;
+  height: 3px;
   display: block;
 }
 
@@ -243,74 +229,48 @@
 }
 
 .vscode-tab-list::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.1);
+  background: #d1d1d6;
   border-radius: 2px;
 }
 
 .vscode-tab-list::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: #8e8e93;
 }
 
-/* Apple Intelligence Mobile Responsive */
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .vscode-tab-bar {
-    min-height: 36px;
-    margin: 4px 6px 6px 6px;
-    padding: 3px 6px;
+    min-height: 60px;
+    padding: 8px 16px;
   }
 
   .vscode-tab {
-    padding: 6px 4px;
-    min-width: 70px;
-    max-width: 120px;
-    font-size: 12px;
-    height: 32px;
-    gap: 3px;
+    padding: 12px 16px;
+    min-width: 100px;
+    max-width: 150px;
+    font-size: 15px;
+    height: 44px;
+    gap: 8px;
   }
 
   .vscode-tab-close {
-    width: 20px;
-    height: 20px;
-    padding: 4px;
+    width: 28px;
+    height: 28px;
+    padding: 6px;
     opacity: 1;
   }
 
   .vscode-tab-title {
-    font-size: 12px;
+    font-size: 15px;
+  }
+
+  .vscode-tab-icon {
+    width: 18px;
+    height: 18px;
   }
 }
 
-/* Apple Intelligence Loading State */
-.vscode-tab-loading {
-  position: relative;
-  overflow: hidden;
-}
-
-.vscode-tab-loading::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(0, 122, 255, 0.15),
-      transparent);
-  animation: tab-loading-shimmer 1.5s infinite;
-}
-
-@keyframes tab-loading-shimmer {
-  0% {
-    left: -100%;
-  }
-
-  100% {
-    left: 100%;
-  }
-}
-
-/* Apple Intelligence Animation for new tabs */
+/* Animations */
 .vscode-tab-enter {
   animation: tab-enter 0.2s ease-out;
 }
@@ -321,92 +281,42 @@
     transform: translateY(-4px);
     max-width: 0;
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
-    max-width: 160px;
+    max-width: 200px;
   }
 }
 
-/* Apple Intelligence Focus Management */
-.vscode-tab:focus {
-  outline: none;
-}
-
-.vscode-tab:focus-visible {
-  outline: 2px solid #007aff;
-  outline-offset: -2px;
-  z-index: 10;
-}
-
-/* Apple Intelligence High Contrast Support */
+/* High Contrast Support */
 @media (prefers-contrast: high) {
   .vscode-tab {
-    border: 1px solid currentColor;
+    border-width: 2px;
   }
 
   .vscode-tab.active {
-    border: 2px solid #007aff;
+    border-width: 2px;
   }
 
   .vscode-tab-close:hover {
-    background: currentColor;
-    color: white;
+    outline: 2px solid currentColor;
   }
 }
 
-/* Apple Intelligence Reduced Motion Support */
+/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-
   .vscode-tab,
   .vscode-tab-close,
   .vscode-tab-icon {
     transition: none;
   }
 
-  .vscode-tab-modified {
+  .vscode-tab-enter {
     animation: none;
   }
 }
 
-/* Apple Intelligence Empty State */
-.vscode-tab-container.no-tabs .vscode-tab-content {
-  background: transparent;
-}
-
-/* Apple Intelligence Tab Overflow Gradient Fade */
-.vscode-tab-list::before,
-.vscode-tab-list::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 12px;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.vscode-tab-list::before {
-  left: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.8), transparent);
-}
-
-.vscode-tab-list::after {
-  right: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0.8), transparent);
-}
-
-/* Apple Intelligence Smooth Scrolling */
+/* Smooth Scrolling */
 .vscode-tab-list {
   scroll-behavior: smooth;
-}
-
-/* Apple Intelligence Tab Group Separator */
-.vscode-tab-separator {
-  width: 1px;
-  height: 16px;
-  background: rgba(0, 0, 0, 0.06);
-  margin: 0 2px;
-  flex-shrink: 0;
 }

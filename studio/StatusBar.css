@@ -1,0 +1,62 @@
+.status-bar {
+  height: 22px;
+  background: var(--vscode-status-bar);
+  color: var(--vscode-status-text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--vscode-space-md);
+  font-size: var(--vscode-font-size-sm);
+  user-select: none;
+}
+
+.status-left,
+.status-center,
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: var(--vscode-space-md);
+}
+
+.status-center {
+  flex: 1;
+  justify-content: center;
+}
+
+.workspace-info {
+  display: flex;
+  align-items: center;
+  gap: var(--vscode-space-sm);
+}
+
+.workspace-name {
+  font-weight: 600;
+}
+
+.note-count {
+  opacity: 0.8;
+}
+
+.sync-status {
+  display: flex;
+  align-items: center;
+  gap: var(--vscode-space-xs);
+}
+
+.sync-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.time-display,
+.user-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--vscode-space-xs);
+  opacity: 0.8;
+}

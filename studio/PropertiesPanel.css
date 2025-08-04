@@ -1,0 +1,97 @@
+.properties-panel {
+  background: var(--vscode-sidebar-bg);
+  border-left: 1px solid var(--vscode-sidebar-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 200px;
+  max-width: 600px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--vscode-space-md);
+  border-bottom: 1px solid var(--vscode-border);
+  background: var(--vscode-bg-tertiary);
+}
+
+.panel-title {
+  font-size: var(--vscode-font-size-lg);
+  font-weight: 600;
+  color: var(--vscode-text-primary);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: var(--vscode-text-secondary);
+  cursor: pointer;
+  padding: var(--vscode-space-xs);
+  border-radius: 2px;
+  transition: var(--vscode-transition);
+}
+
+.close-btn:hover {
+  background: var(--vscode-bg-elevated);
+  color: var(--vscode-text-primary);
+}
+
+.panel-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--vscode-space-md);
+}
+
+.note-properties {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vscode-space-lg);
+}
+
+.property-section h3 {
+  font-size: var(--vscode-font-size-md);
+  font-weight: 600;
+  color: var(--vscode-text-primary);
+  margin: 0 0 var(--vscode-space-sm) 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.property-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--vscode-space-sm) 0;
+  border-bottom: 1px solid var(--vscode-border);
+  font-size: var(--vscode-font-size-sm);
+}
+
+.property-item label {
+  color: var(--vscode-text-secondary);
+  font-weight: 500;
+}
+
+.property-item span {
+  color: var(--vscode-text-primary);
+}
+
+.no-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: var(--vscode-text-muted);
+  gap: var(--vscode-space-md);
+}
+
+.no-selection p {
+  margin: 0;
+  font-size: var(--vscode-font-size-sm);
+}

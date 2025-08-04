@@ -1,0 +1,74 @@
+.command-palette-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+}
+
+.command-palette {
+  background: var(--vscode-bg-elevated);
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  box-shadow: var(--vscode-shadow-lg);
+  width: 90%;
+  max-width: 600px;
+  max-height: 400px;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease;
+}
+
+.palette-header {
+  display: flex;
+  align-items: center;
+  gap: var(--vscode-space-sm);
+  padding: var(--vscode-space-md);
+  border-bottom: 1px solid var(--vscode-border);
+}
+
+.palette-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: var(--vscode-font-size-md);
+  color: var(--vscode-text-primary);
+}
+
+.palette-input::placeholder {
+  color: var(--vscode-text-muted);
+}
+
+.palette-results {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.command-item {
+  padding: var(--vscode-space-sm) var(--vscode-space-md);
+  cursor: pointer;
+  transition: var(--vscode-transition);
+  color: var(--vscode-text-primary);
+}
+
+.command-item:hover,
+.command-item.selected {
+  background: var(--vscode-bg-elevated);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

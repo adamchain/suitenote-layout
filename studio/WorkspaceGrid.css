@@ -1,0 +1,124 @@
+.workspace-grid {
+  flex: 1;
+  position: relative;
+  background: var(--vscode-bg-primary);
+  background-image: 
+    linear-gradient(var(--vscode-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--vscode-border) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0;
+  overflow: auto;
+  min-height: 100%;
+  cursor: default;
+}
+
+.workspace-grid.drop-target {
+  background-color: rgba(0, 122, 204, 0.05);
+}
+
+.workspace-grid.drop-target::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px dashed var(--vscode-text-accent);
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.empty-workspace {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--vscode-text-muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--vscode-space-lg);
+  max-width: 400px;
+}
+
+.empty-icon {
+  font-size: 64px;
+  opacity: 0.3;
+}
+
+.empty-content h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--vscode-text-secondary);
+  margin: 0;
+}
+
+.empty-content p {
+  font-size: var(--vscode-font-size-md);
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.empty-shortcuts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vscode-space-sm);
+  margin-top: var(--vscode-space-lg);
+}
+
+.shortcut {
+  display: flex;
+  align-items: center;
+  gap: var(--vscode-space-sm);
+  font-size: var(--vscode-font-size-sm);
+  color: var(--vscode-text-muted);
+}
+
+.shortcut kbd {
+  background: var(--vscode-bg-elevated);
+  border: 1px solid var(--vscode-border-light);
+  border-radius: 3px;
+  padding: 2px 6px;
+  font-family: var(--vscode-font-mono);
+  font-size: 10px;
+  color: var(--vscode-text-primary);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid Snap Zones */
+.grid-snap-zone {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 1px dashed transparent;
+  transition: var(--vscode-transition);
+  pointer-events: none;
+}
+
+.grid-snap-zone.highlight {
+  border-color: var(--vscode-text-accent);
+  background: rgba(0, 122, 204, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .workspace-grid {
+    background-size: 15px 15px;
+  }
+  
+  .empty-content h3 {
+    font-size: 20px;
+  }
+  
+  .empty-shortcuts {
+    display: none;
+  }
+}

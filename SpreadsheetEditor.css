@@ -1,0 +1,331 @@
+/* Spreadsheet Editor Styles */
+
+.spreadsheet-editor-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.spreadsheet-editor-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: auto;
+}
+
+.spreadsheet-editor {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  width: 95vw;
+  height: 90vh;
+  max-width: 1400px;
+  max-height: 900px;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.spreadsheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+  border-radius: 12px 12px 0 0;
+}
+
+.spreadsheet-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #111827;
+}
+
+.filename-input {
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  outline: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+.filename-input:focus {
+  background: white;
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.spreadsheet-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolbar-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toolbar-btn:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.toolbar-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toolbar-btn.save-btn {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.toolbar-btn.save-btn:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.toolbar-btn.close-btn {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}
+
+.toolbar-btn.close-btn:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  z-index: 10;
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f3f4f6;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spreadsheet-container {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+  background: #fafafa;
+  position: relative;
+}
+
+.jspreadsheet-container {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.spreadsheet-footer {
+  padding: 12px 24px;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+  border-radius: 0 0 12px 12px;
+}
+
+.footer-info {
+  font-size: 12px;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* Override jspreadsheet default styles */
+.jspreadsheet-container .jexcel_content {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.jspreadsheet-container .jexcel_content table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.jspreadsheet-container .jexcel_content table td {
+  border: 1px solid #e5e7eb;
+  padding: 6px 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.jspreadsheet-container .jexcel_content table th {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  color: #374151;
+}
+
+.jspreadsheet-container .jexcel_content table td:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: -2px;
+}
+
+.jspreadsheet-container .jexcel_content table td.highlight {
+  background: #dbeafe !important;
+}
+
+.jspreadsheet-container .jexcel_content table td.edition {
+  background: #fef3c7 !important;
+  outline: 2px solid #f59e0b;
+  outline-offset: -2px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .spreadsheet-editor-overlay {
+    padding: 10px;
+  }
+
+  .spreadsheet-editor {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+  }
+
+  .spreadsheet-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .spreadsheet-title {
+    justify-content: center;
+  }
+
+  .spreadsheet-toolbar {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .toolbar-btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .filename-input {
+    font-size: 16px;
+    text-align: center;
+    min-width: 150px;
+  }
+
+  .spreadsheet-container {
+    padding: 8px;
+  }
+
+  .spreadsheet-footer {
+    padding: 8px 16px;
+  }
+
+  .footer-info {
+    font-size: 11px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .spreadsheet-editor {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+
+  .spreadsheet-header,
+  .spreadsheet-footer {
+    background: #111827;
+    border-color: #374151;
+  }
+
+  .filename-input {
+    color: #f9fafb;
+  }
+
+  .filename-input:focus {
+    background: #374151;
+  }
+
+  .toolbar-btn {
+    background: #374151;
+    border-color: #4b5563;
+    color: #f9fafb;
+  }
+
+  .toolbar-btn:hover {
+    background: #4b5563;
+    border-color: #6b7280;
+  }
+
+  .spreadsheet-container {
+    background: #111827;
+  }
+
+  .jspreadsheet-container {
+    background: #1f2937;
+  }
+
+  .jspreadsheet-container .jexcel_content table td {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f9fafb;
+  }
+
+  .jspreadsheet-container .jexcel_content table th {
+    background: #111827;
+    border-color: #374151;
+    color: #d1d5db;
+  }
+}

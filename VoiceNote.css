@@ -1,0 +1,385 @@
+/* Minimalistic Voice Note - Google Docs Style */
+.voice-note-container {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 0;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  color: #202124;
+  font-weight: 400;
+  cursor: pointer;
+  margin: 8px;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.voice-note-container:hover {
+}
+
+/* Header */
+.voice-note-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 12px 20px;
+  background: #f8f9fa;
+  margin-bottom: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 8px 8px 0 0;
+}
+
+.voice-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #5f6368;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.recording-count {
+  background: #e8f0fe;
+  color: #1a73e8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.note-delete-btn {
+  background: none;
+  border: none;
+  color: #5f6368;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.note-delete-btn:hover {
+  background: #f1f3f4;
+  color: #202124;
+}
+
+/* Save Warning */
+.save-warning {
+  background: #fff3cd;
+  color: #856404;
+  padding: 8px 16px;
+  margin: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* New Recording Card */
+.new-recording-card {
+  background: #ffffff;
+  margin: 0;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.new-recording-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #202124;
+}
+
+.recording-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.record-btn {
+  background: #1a73e8;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+
+.record-btn:hover {
+  background: #1557b0;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
+}
+
+.record-btn.recording {
+  background: #d93025;
+  animation: pulse 2s infinite;
+}
+
+.record-btn.recording:hover {
+  background: #b52d20;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.stop-btn {
+  background: #5f6368;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+
+.stop-btn:hover {
+  background: #3c4043;
+}
+
+.recording-time {
+  font-size: 14px;
+  color: #d93025;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Live Transcript */
+.live-transcript {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 8px;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.transcript-label {
+  font-size: 12px;
+  color: #5f6368;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.transcript-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #202124;
+  min-height: 20px;
+}
+
+.transcript-text.empty {
+  color: #9aa0a6;
+  font-style: italic;
+}
+
+/* Existing Recordings */
+.existing-recordings {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 20px 20px 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.recording-item {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.recording-item:hover {
+  background: #f1f3f4;
+}
+
+.recording-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.recording-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #202124;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.recording-controls-existing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.play-btn,
+.download-btn {
+  background: none;
+  border: none;
+  color: #5f6368;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-btn:hover,
+.download-btn:hover {
+  background: #e8eaed;
+  color: #202124;
+}
+
+.play-btn.playing {
+  color: #1a73e8;
+}
+
+.recording-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #5f6368;
+}
+
+.recording-duration,
+.recording-date {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.recording-transcript {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #5f6368;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 8px;
+  margin-top: 4px;
+  max-height: 60px;
+  overflow-y: auto;
+}
+
+/* Empty State */
+.empty-recordings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  color: #5f6368;
+}
+
+.empty-recordings-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.empty-recordings h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #202124;
+  margin: 0 0 8px 0;
+}
+
+.empty-recordings p {
+  font-size: 14px;
+  margin: 0;
+  max-width: 300px;
+  line-height: 1.5;
+}
+
+/* Scrollbar styling */
+.existing-recordings::-webkit-scrollbar {
+  width: 6px;
+}
+
+.existing-recordings::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.existing-recordings::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.existing-recordings::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .voice-note-container {
+    border-radius: 8px;
+    min-height: 100px;
+  }
+
+  .voice-note-header {
+    padding: 10px 14px 6px 14px;
+  }
+
+  .new-recording-card {
+    padding: 0 14px 14px 14px;
+  }
+
+  .existing-recordings {
+    padding: 0 14px 14px 14px;
+  }
+
+  .record-btn,
+  .stop-btn {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 16px;
+  }
+
+  .recording-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+}

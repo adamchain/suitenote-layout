@@ -1,0 +1,555 @@
+.basic-note {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 0;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  color: #202124;
+  font-weight: 400;
+  cursor: pointer;
+  margin: 8px;
+}
+
+
+.basic-note.todo {
+  background: white;
+}
+
+.basic-note.folder {
+  border-left: 4px solid var(--vscode-success);
+  background: var(--vscode-bg-alt);
+}
+
+.basic-note.full-view-note {
+  background: white;
+  padding: 0px;
+  min-height: auto;
+  height: 100%;
+  overflow: visible;
+  color: var(--vscode-text);
+  font-family: var(--vscode-font-family);
+  font-weight: 400;
+}
+
+
+.note-editor .tox-editor-header {
+  background: var(--vscode-bg-alt) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+.note-editor .tox-toolbar__primary {
+  background: var(--vscode-bg-alt) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+.note-editor .tox-tbtn {
+  color: var(--vscode-text) !important;
+  border-radius: 4px !important;
+}
+
+.note-editor .tox-tbtn:hover {
+  background: var(--vscode-bg) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.note-editor .tox-tbtn--active {
+  color: #ffffff !important;
+}
+
+.note-editor .tox-edit-area {
+  background: var(--vscode-bg) !important;
+}
+
+.note-editor .tox-edit-area iframe {
+  background: var(--vscode-bg) !important;
+}
+
+.note-editor .tox-menubar {
+  background: var(--vscode-bg-alt) !important;
+  border-bottom: 1px solid var(--vscode-border) !important;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px 12px 20px;
+  background: #f8f9fa;
+  margin-bottom: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 8px 8px 0 0;
+}
+
+.basic-note.full-view-note .note-header {
+  padding: 0 0 20px 0;
+  margin-bottom: 24px;
+  background: var(--vscode-bg);
+  border-radius: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.note-type-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--vscode-text-muted);
+  font-weight: 500;
+}
+
+.note-icon {
+  font-size: 14px;
+}
+
+.note-type {
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--vscode-text-muted);
+}
+
+.note-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  opacity: 0;
+  transition: var(--vscode-transition);
+}
+
+.basic-note:hover .note-actions {
+  opacity: 1;
+}
+
+.note-action {
+  background: #ffffff;
+  border: 1px solid #dadce0;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #5f6368;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  font-weight: 400;
+}
+
+.note-action:hover {
+  background: #f1f3f4;
+  color: #202124;
+  border-color: #bdc1c6;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.15);
+}
+
+.enhance-btn:hover {
+  background: var(--vscode-purple-light);
+  color: var(--vscode-purple);
+  border-color: var(--vscode-purple);
+}
+
+.focus-btn:hover {
+  background: var(--vscode-blue-light);
+  color: var(--vscode-blue);
+  border-color: var(--vscode-blue);
+}
+
+.delete-btn:hover,
+.note-delete-btn:hover {
+  background: var(--vscode-error-light);
+  color: var(--vscode-error);
+  border-color: var(--vscode-error);
+}
+
+.note-delete-btn {
+  background: var(--vscode-bg);
+  border: 1px solid var(--vscode-border);
+  padding: 6px 10px;
+  border-radius: var(--vscode-radius);
+  cursor: pointer;
+  color: var(--vscode-text-muted);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--vscode-transition);
+  font-weight: 500;
+  box-shadow: var(--vscode-shadow-sm);
+}
+
+.note-content {
+  flex: 1;
+  padding: 16px 20px 20px 20px;
+  margin-bottom: 0;
+  color: var(--vscode-text);
+  line-height: 1.6;
+}
+
+.note-editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.formatting-toolbar {
+  display: none;
+  /* Hide for minimalist Apple style */
+}
+
+.note-textarea {
+  flex: 1;
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid var(--vscode-border);
+  outline: none;
+  resize: none;
+  font-family: var(--vscode-font-family);
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 16px 20px;
+  background: var(--vscode-bg);
+  color: var(--vscode-text);
+  border-radius: 0 0 var(--vscode-radius) var(--vscode-radius);
+  transition: var(--vscode-transition);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+
+.basic-note.full-view-note .note-textarea {
+  min-height: 300px;
+  line-height: 1.6;
+  font-size: 14px;
+  padding: 20px 24px;
+  border: 1px solid var(--vscode-border);
+  border-radius: var(--vscode-radius);
+  background: var(--vscode-bg);
+  color: var(--vscode-text);
+  font-family: var(--vscode-font-family);
+  font-weight: 400;
+  box-shadow: var(--vscode-shadow);
+}
+
+.note-content:not(:has(textarea)) {
+  padding: 0 16px 16px 16px;
+  min-height: 60px;
+  font-size: 18px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  cursor: pointer;
+  color: #39ff14;
+  font-family: 'JetBrains Mono', Menlo, Consolas, Monaco, monospace;
+  font-weight: 700;
+}
+
+.basic-note.full-view-note .note-content:not(:has(textarea)) {
+  padding: 0;
+  min-height: 100px;
+  line-height: 1.5;
+  border: none;
+  border-radius: 0;
+  font-size: 18px;
+  color: #39ff14;
+  font-family: 'JetBrains Mono', Menlo, Consolas, Monaco, monospace;
+  font-weight: 700;
+}
+
+.note-placeholder {
+  color: #39ff14aa;
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Apple Reminders-style Todo Content */
+.todo-content {
+  padding: 8px 16px 16px 16px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: var(--vscode-transition);
+  border-radius: 8px;
+  margin: 0 -8px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.todo-item:hover {
+  background: var(--vscode-bg-hover);
+}
+
+.todo-item.completed {
+  opacity: 0.6;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--vscode-text-muted);
+}
+
+.todo-checkbox {
+  flex-shrink: 0;
+  font-size: 16px;
+  user-select: none;
+  color: var(--vscode-blue);
+  margin-top: 1px;
+  padding: 4px;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--vscode-text);
+  font-weight: 400;
+}
+
+.note-footer {
+  margin-top: auto;
+  padding: 8px 16px 12px 16px;
+  border-top: none;
+  background: transparent;
+}
+
+.note-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--vscode-text-muted);
+}
+
+.note-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: var(--vscode-blue-light);
+  color: var(--vscode-blue);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  border: none;
+}
+
+.note-timestamp {
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+/* Apple Notes-style typography */
+.basic-note h1,
+.basic-note h2,
+.basic-note h3 {
+  font-weight: 600;
+  color: var(--vscode-text);
+  margin: 16px 0 8px 0;
+}
+
+.basic-note h1 {
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.basic-note h2 {
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.basic-note h3 {
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.basic-note p {
+  margin: 8px 0;
+  color: var(--vscode-text);
+}
+
+.basic-note strong {
+  font-weight: 600;
+  color: var(--vscode-text);
+}
+
+.basic-note em {
+  font-style: italic;
+  color: var(--vscode-text);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .basic-note {
+    border-radius: var(--vscode-radius);
+    min-height: 100px;
+  }
+
+  .note-header {
+    padding: 10px 14px 6px 14px;
+  }
+
+  .note-content,
+  .note-editor {
+    padding: 0 14px 14px 14px;
+  }
+
+  .note-textarea {
+    font-size: 16px;
+    /* Prevent zoom on iOS */
+    min-height: 44px;
+    /* Touch-friendly minimum */
+  }
+
+  .todo-content {
+    padding: 6px 14px 14px 14px;
+  }
+
+  .note-footer {
+    padding: 6px 14px 10px 14px;
+  }
+
+  .note-action {
+    min-height: 44px;
+    /* Touch-friendly tap targets */
+    min-width: 44px;
+    padding: 8px 12px;
+  }
+}
+
+/* AI Formatting Overlay */
+:root {
+  --ai-blue: #2D9CDB;
+  --ai-purple: #9B51E0;
+  --ai-pink: #EB5757;
+  --ai-orange: #F2994A;
+  --ai-yellow: #F2C94C;
+}
+
+.ai-formatting-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background:
+    radial-gradient(70% 80% at 20% 25%, color-mix(in oklab, var(--ai-blue) 35%, white) 0%, transparent 60%),
+    radial-gradient(80% 80% at 85% 70%, color-mix(in oklab, var(--ai-orange) 35%, white) 0%, transparent 65%),
+    radial-gradient(120% 120% at 50% 50%, rgba(255, 255, 255, .35), rgba(255, 255, 255, .10) 60%, transparent 70%);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35);
+  pointer-events: auto;
+  cursor: progress;
+  overflow: hidden;
+}
+
+/* gentle aurora sweep */
+.ai-formatting-overlay::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    conic-gradient(from 0turn,
+      var(--ai-blue),
+      var(--ai-purple),
+      var(--ai-pink),
+      var(--ai-orange),
+      var(--ai-yellow),
+      var(--ai-blue));
+  filter: blur(40px) opacity(.35);
+  animation: ai-sweep 8s linear infinite;
+}
+
+/* subtle pulse ring */
+.ai-formatting-overlay::after {
+  content: "";
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%,
+      rgba(255, 255, 255, .85) 0%,
+      rgba(255, 255, 255, .35) 35%,
+      rgba(255, 255, 255, 0) 70%);
+  mix-blend-mode: screen;
+  animation: ai-pulse 2.8s ease-in-out infinite;
+}
+
+/* optional label */
+.ai-formatting-overlay>.ai-status {
+  font: 600 14px/1.2 system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  letter-spacing: .02em;
+  color: rgba(0, 0, 0, .72);
+  padding: .6rem .9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .65);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, .10), inset 0 0 0 1px rgba(255, 255, 255, .7);
+  backdrop-filter: blur(8px);
+}
+
+/* animations */
+@keyframes ai-sweep {
+  to {
+    transform: rotate(1turn) scale(1.02);
+  }
+}
+
+@keyframes ai-pulse {
+
+  0%,
+  100% {
+    transform: scale(.92);
+    opacity: .75;
+  }
+
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .ai-formatting-overlay::before,
+  .ai-formatting-overlay::after {
+    animation: none;
+  }
+}
+
+/* dark mode tweak */
+@media (prefers-color-scheme: dark) {
+  .ai-formatting-overlay>.ai-status {
+    color: rgba(255, 255, 255, .9);
+    background: rgba(20, 20, 25, .45);
+    box-shadow: 0 2px 18px rgba(0, 0, 0, .35), inset 0 0 0 1px rgba(255, 255, 255, .16);
+  }
+}
+
+/* AI tools moved to RightPanel */
+
+.basic-note-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,256 @@
+.thread-note {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.thread-note:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.thread-note.reply {
+  margin-left: 24px;
+  border-left: 3px solid #8b5cf6;
+  background: #faf5ff;
+}
+
+.thread-note.first {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.reply-reference {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  background: #eff6ff;
+  border: 1px solid #3b82f6;
+  border-radius: 6px;
+  font-size: 11px;
+  color: #1e40af;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.note-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.note-type {
+  font-size: 14px;
+}
+
+.note-timestamp {
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.ai-badge {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: #667eea;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.note-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.note-actions.visible {
+  opacity: 1;
+}
+
+.note-action {
+  padding: 4px;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #6b7280;
+  transition: all 0.2s ease;
+}
+
+.note-action:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.note-menu {
+  position: relative;
+}
+
+.note-menu-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  min-width: 140px;
+  display: none;
+}
+
+.note-menu:hover .note-menu-dropdown {
+  display: block;
+}
+
+.note-menu-dropdown button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px 10px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 11px;
+  color: #374151;
+  transition: background-color 0.2s ease;
+}
+
+.note-menu-dropdown button:hover {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.note-content {
+  margin-bottom: 12px;
+}
+
+.note-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #374151;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edit-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #8b5cf6;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 60px;
+  outline: none;
+  font-family: inherit;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.save-btn,
+.cancel-btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-btn {
+  background: #8b5cf6;
+  color: white;
+  border: none;
+}
+
+.save-btn:hover {
+  background: #7c3aed;
+}
+
+.cancel-btn {
+  background: white;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+}
+
+.cancel-btn:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.note-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: #e5e7eb;
+  color: #374151;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.tag-more {
+  background: #f3f4f6;
+  color: #6b7280;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .thread-note {
+    padding: 12px;
+  }
+  
+  .thread-note.reply {
+    margin-left: 16px;
+  }
+  
+  .note-actions {
+    opacity: 1;
+  }
+  
+  .note-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .edit-actions {
+    flex-direction: column;
+  }
+}

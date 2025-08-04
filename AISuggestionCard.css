@@ -1,0 +1,364 @@
+/* Modern VS Code + ChatGPT AI Suggestion Card */
+
+/* Insert to doc row/button */
+.insert-to-doc-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.insert-to-doc-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--chatgpt-primary-light);
+  border: 1px solid var(--chatgpt-primary);
+  border-radius: var(--vscode-radius);
+  color: var(--chatgpt-primary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: var(--vscode-transition);
+  font-family: var(--vscode-font-family);
+}
+
+.insert-to-doc-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.insert-to-doc-btn:not(:disabled):hover {
+  background: var(--chatgpt-primary);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(16, 163, 127, 0.2);
+}
+
+/* Insert mode highlight for BasicNote */
+.insert-mode {
+  box-shadow: 0 0 0 2px var(--chatgpt-primary) !important;
+  position: relative;
+  background: var(--chatgpt-primary-light) !important;
+}
+
+.insert-mode-banner {
+  background: var(--chatgpt-primary);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 0 0 var(--vscode-radius) var(--vscode-radius);
+  margin-top: 6px;
+  text-align: center;
+  font-family: var(--vscode-font-family);
+  box-shadow: 0 2px 8px rgba(16, 163, 127, 0.2);
+}
+
+.ai-suggestion-card {
+  margin-bottom: 16px;
+  background: var(--chatgpt-surface);
+  border: 1px solid var(--chatgpt-border);
+  border-left: 3px solid var(--chatgpt-primary);
+  border-radius: var(--vscode-radius);
+  padding: 16px;
+  transition: var(--vscode-transition);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ai-suggestion-card:hover {
+  border-left-color: var(--chatgpt-accent);
+  border-color: var(--chatgpt-primary);
+  background: var(--chatgpt-surface-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(16, 163, 127, 0.1);
+}
+
+.suggestion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--chatgpt-border);
+}
+
+.suggestion-type {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--chatgpt-primary);
+}
+
+.type-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: var(--vscode-font-family);
+}
+
+.suggestion-confidence {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--vscode-panel-header);
+  padding: 4px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--chatgpt-border);
+}
+
+.confidence-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--chatgpt-primary);
+  box-shadow: 0 0 4px rgba(16, 163, 127, 0.3);
+}
+
+.confidence-text {
+  font-size: 11px;
+  color: var(--vscode-text-muted);
+  font-weight: 600;
+  font-family: var(--vscode-font-family);
+}
+
+.suggestion-content {
+  margin-bottom: 20px;
+}
+
+.suggestion-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--vscode-text);
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+  font-family: var(--vscode-font-family);
+}
+
+.content-diff {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.diff-section {
+  padding: 12px 16px;
+  border-radius: var(--vscode-radius);
+  border: 1px solid var(--vscode-border);
+  position: relative;
+}
+
+.diff-section.original {
+  background: var(--vscode-error-light, #fee2e2);
+  border-color: var(--vscode-error, #dc2626);
+}
+
+.diff-section.suggested {
+  background: var(--vscode-success-light, #dcfce7);
+  border-color: var(--vscode-success, #16a34a);
+}
+
+.diff-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--vscode-text-muted);
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--vscode-font-family);
+}
+
+.diff-content {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--vscode-text);
+  font-family: var(--vscode-font-mono, monospace);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 8px 12px;
+  border-radius: var(--vscode-radius-sm);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--vscode-text);
+  background: var(--chatgpt-surface);
+  padding: 16px;
+  border-radius: var(--vscode-radius);
+  border: 1px solid var(--chatgpt-border);
+  font-family: var(--vscode-font-family);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.suggestion-reasoning {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: var(--chatgpt-primary-light);
+  border-radius: var(--vscode-radius);
+  border: 1px solid var(--chatgpt-primary);
+  position: relative;
+}
+
+.reasoning-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--chatgpt-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--vscode-font-family);
+}
+
+.reasoning-text {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--vscode-text);
+  margin: 0;
+  font-family: var(--vscode-font-family);
+}
+
+.suggestion-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--chatgpt-border);
+}
+
+.suggestion-actions .vscode-btn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--vscode-radius);
+  transition: var(--vscode-transition);
+  font-family: var(--vscode-font-family);
+}
+
+.suggestion-actions .vscode-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-actions .vscode-btn-primary {
+  background: var(--chatgpt-primary);
+  color: white;
+  border: 1px solid var(--chatgpt-primary);
+}
+
+.suggestion-actions .vscode-btn-primary:hover {
+  background: var(--chatgpt-accent);
+  box-shadow: 0 2px 8px rgba(16, 163, 127, 0.2);
+}
+
+.suggestion-actions .vscode-btn-secondary {
+  background: var(--vscode-bg);
+  color: var(--vscode-text);
+  border: 1px solid var(--vscode-border);
+}
+
+.suggestion-actions .vscode-btn-secondary:hover {
+  background: var(--vscode-bg-hover);
+  border-color: var(--chatgpt-primary);
+  color: var(--chatgpt-primary);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .ai-suggestion-card {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .content-diff {
+    gap: 16px;
+  }
+
+  .diff-section {
+    padding: 16px;
+  }
+
+  .suggestion-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .suggestion-actions .vscode-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    /* Touch-friendly */
+    font-size: 14px;
+    padding: 14px 20px;
+  }
+
+  .suggestion-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .suggestion-confidence {
+    align-self: flex-end;
+  }
+
+  .suggestion-title {
+    font-size: 16px;
+  }
+
+  .suggestion-text {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .diff-content {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+}
+
+/* Focus states for accessibility */
+.insert-to-doc-btn:focus-visible,
+.suggestion-actions .vscode-btn:focus-visible {
+  outline: 2px solid var(--chatgpt-primary);
+  outline-offset: 2px;
+}
+
+/* Animation enhancements */
+.ai-suggestion-card {
+  animation: suggestionFadeIn 0.3s ease-out;
+}
+
+@keyframes suggestionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Confidence indicator variants */
+.confidence-indicator.high {
+  background: var(--chatgpt-primary);
+  box-shadow: 0 0 6px rgba(16, 163, 127, 0.4);
+}
+
+.confidence-indicator.medium {
+  background: #f59e0b;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.4);
+}
+
+.confidence-indicator.low {
+  background: #ef4444;
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.4);
+}

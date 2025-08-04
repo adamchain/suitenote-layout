@@ -1,0 +1,20 @@
+.resize-handle {
+  background: transparent;
+  transition: var(--vscode-transition);
+  z-index: 100;
+}
+
+.resize-handle:hover,
+.resize-handle.resizing {
+  background: var(--vscode-border-focus);
+}
+
+.resize-handle.vertical {
+  width: 4px;
+  cursor: col-resize;
+}
+
+.resize-handle.horizontal {
+  height: 4px;
+  cursor: row-resize;
+}

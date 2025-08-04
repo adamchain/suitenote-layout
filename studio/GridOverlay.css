@@ -1,0 +1,50 @@
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.grid-lines {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-line {
+  position: absolute;
+  background: var(--vscode-text-accent);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.grid-line.vertical {
+  width: 1px;
+  height: 100%;
+}
+
+.grid-line.horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+.grid-highlight {
+  position: absolute;
+  background: rgba(0, 122, 204, 0.2);
+  border: 2px dashed var(--vscode-text-accent);
+  border-radius: 4px;
+  pointer-events: none;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}

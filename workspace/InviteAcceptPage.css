@@ -1,0 +1,313 @@
+.invite-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+}
+
+.invite-container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.invite-header {
+  margin-bottom: 32px;
+}
+
+.workspace-icon {
+  width: 80px;
+  height: 80px;
+  background: #007aff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: white;
+}
+
+.invite-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 0 0 8px 0;
+}
+
+.invite-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #007aff;
+  margin: 0;
+}
+
+.invite-details {
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.workspace-description {
+  font-size: 16px;
+  color: #8e8e93;
+  line-height: 1.5;
+  margin: 0 0 24px 0;
+  text-align: center;
+  font-style: italic;
+}
+
+.invitation-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.info-item.expiry {
+  justify-content: center;
+  gap: 8px;
+  background: #fff3cd;
+  color: #856404;
+}
+
+.info-label {
+  font-size: 14px;
+  color: #8e8e93;
+  font-weight: 500;
+}
+
+.info-value {
+  font-size: 14px;
+  color: #1d1d1f;
+  font-weight: 600;
+}
+
+.role-badge {
+  background: #007aff;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.expiry-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.expiry-text.expired {
+  color: #ff3b30;
+}
+
+.invite-actions {
+  margin-bottom: 24px;
+}
+
+.accept-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px 24px;
+  background: #007aff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.accept-btn:hover:not(:disabled) {
+  background: #0056cc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
+}
+
+.accept-btn:disabled {
+  background: #c7c7cc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sign-in-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px 24px;
+  background: #1d1d1f;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.sign-in-btn:hover {
+  background: #333333;
+  transform: translateY(-2px);
+}
+
+.auth-required {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-required p {
+  font-size: 14px;
+  color: #8e8e93;
+  margin: 0;
+}
+
+.expired-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  background: #ffebee;
+  color: #c62828;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.invite-footer {
+  border-top: 1px solid white;
+  padding-top: 24px;
+}
+
+.invite-footer p {
+  font-size: 12px;
+  color: #8e8e93;
+  line-height: 1.4;
+  margin: 0 0 8px 0;
+}
+
+.invite-footer p:last-child {
+  margin: 0;
+}
+
+.loading-state,
+.error-state,
+.success-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 20px;
+}
+
+.loading-state h2,
+.error-state h2,
+.success-state h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 0;
+}
+
+.error-state {
+  color: #ff3b30;
+}
+
+.success-state {
+  color: #34c759;
+}
+
+.spinner-large {
+  width: 32px;
+  height: 32px;
+  border: 3px solid white;
+  border-top: 3px solid #007aff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.home-btn {
+  padding: 12px 24px;
+  background: #007aff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.home-btn:hover {
+  background: #0056cc;
+  transform: translateY(-1px);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .invite-container {
+    padding: 24px;
+    margin: 10px;
+  }
+
+  .invite-header h1 {
+    font-size: 20px;
+  }
+
+  .invite-header h2 {
+    font-size: 24px;
+  }
+
+  .workspace-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+  }
+
+  .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .accept-btn,
+  .sign-in-btn {
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+}

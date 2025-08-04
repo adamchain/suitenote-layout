@@ -1,0 +1,204 @@
+import React from 'react';
+import { 
+  StickyNote, 
+  Folder, 
+  CheckSquare, 
+  Search, 
+  Calendar,
+  Mic,
+  PenTool,
+  Camera,
+  Monitor,
+  Bot,
+  Tag,
+  Archive,
+  Image,
+  Users,
+  BarChart3,
+  MessageSquare
+} from 'lucide-react';
+import { Note } from '../types/Note';
+import './Toolbar.css';
+
+interface ToolbarProps {
+  onAddNote: (type: Note['type'], position?: { x: number; y: number }) => void;
+  onSearch: () => void;
+  onCalendar: () => void;
+  onAIAssistant: () => void;
+  onTagManager: () => void;
+  onArchiveManager: () => void;
+  onCollaboration: () => void;
+  onProductivityDashboard: () => void;
+  onThreads: () => void;
+}
+
+const Toolbar: React.FC<ToolbarProps> = ({
+  onAddNote,
+  onSearch,
+  onCalendar,
+  onAIAssistant,
+  onTagManager,
+  onArchiveManager,
+  onCollaboration,
+  onProductivityDashboard,
+  onThreads
+}) => {
+  const getRandomPosition = () => ({
+    x: Math.random() * (window.innerWidth - 400) + 100,
+    y: Math.random() * (window.innerHeight - 300) + 100
+  });
+
+  const tools = [
+    {
+      icon: <Monitor size={20} />,
+      label: 'Webview',
+      action: () => onAddNote('webview', getRandomPosition()),
+      shortcut: 'W',
+      color: undefined
+    },
+    {
+      icon: <StickyNote size={20} />,
+      label: 'Yellow Note',
+      action: () => onAddNote('note', getRandomPosition()),
+      color: 'yellow',
+      shortcut: 'N'
+    },
+    {
+      icon: <StickyNote size={20} />,
+      label: 'Blue Note',
+      action: () => onAddNote('note', getRandomPosition()),
+      color: 'blue',
+      shortcut: 'B'
+    },
+    {
+      icon: <StickyNote size={20} />,
+      label: 'Purple Note',
+      action: () => onAddNote('note', getRandomPosition()),
+      color: 'purple',
+      shortcut: 'P'
+    },
+    {
+      icon: <Folder size={20} />,
+      label: 'Folder',
+      action: () => onAddNote('folder', getRandomPosition()),
+      shortcut: 'F',
+      color: undefined
+    },
+    {
+      icon: <CheckSquare size={20} />,
+      label: 'Todo List',
+      action: () => onAddNote('todo', getRandomPosition()),
+      shortcut: 'T',
+      color: undefined
+    },
+    {
+      icon: <Mic size={20} />,
+      label: 'Voice Note',
+      action: () => onAddNote('voice', getRandomPosition()),
+      shortcut: 'V',
+      color: undefined
+    },
+    {
+      icon: <PenTool size={20} />,
+      label: 'Sketch',
+      action: () => onAddNote('sketch', getRandomPosition()),
+      shortcut: 'S',
+      color: undefined
+    },
+    {
+      icon: <Camera size={20} />,
+      label: 'Scan',
+      action: () => onAddNote('scan', getRandomPosition()),
+      shortcut: 'C',
+      color: undefined
+    },
+    {
+      icon: <Image size={20} />,
+      label: 'Media',
+      action: () => onAddNote('media', getRandomPosition()),
+      shortcut: 'M',
+      color: undefined
+    },
+    {
+      icon: <Search size={20} />,
+      label: 'Search',
+      action: onSearch,
+      shortcut: '⌘K',
+      color: undefined
+    },
+    {
+      icon: <Calendar size={20} />,
+      label: 'Calendar',
+      action: onCalendar,
+      shortcut: '⌘D',
+      color: undefined
+    },
+    {
+      icon: <Bot size={20} />,
+      label: 'AI Assistant',
+      action: onAIAssistant,
+      shortcut: '⌘A',
+      color: undefined
+    },
+    {
+      icon: <Tag size={20} />,
+      label: 'Tag Manager',
+      action: onTagManager,
+      shortcut: '⌘T',
+      color: undefined
+    },
+    {
+      icon: <Archive size={20} />,
+      label: 'Archive',
+      action: onArchiveManager,
+      shortcut: '⌘R',
+      color: undefined
+    },
+    {
+      icon: <Users size={20} />,
+      label: 'Collaborate',
+      action: onCollaboration,
+      shortcut: '⌘U',
+      color: undefined
+    },
+    {
+      icon: <BarChart3 size={20} />,
+      label: 'Analytics',
+      action: onProductivityDashboard,
+      shortcut: '⌘P',
+      color: undefined
+    },
+    {
+      icon: <MessageSquare size={20} />,
+      label: 'Threads',
+      action: onThreads,
+      shortcut: '⌘H',
+      color: undefined
+    }
+  ];
+
+  return (
+    <div className="toolbar">
+      <div className="toolbar-content">
+        {tools.map((tool, index) => (
+          <button
+            key={index}
+            className={`toolbar-button ${tool.color ? `color-${tool.color}` : ''}`}
+            onClick={tool.action}
+            title={`${tool.label} (${tool.shortcut})`}
+          >
+            {tool.icon}
+            <span className="toolbar-label">{tool.label}</span>
+            <span className="toolbar-shortcut">{tool.shortcut}</span>
+          </button>
+        ))}
+      </div>
+      
+      <div className="toolbar-info">
+        <span>Click anywhere on the desk to create a note • Right-click for quick actions • Drag notes to move them</span>
+      </div>
+    </div>
+  );
+};
+
+export default Toolbar;

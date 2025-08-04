@@ -1,0 +1,279 @@
+/* Modern VS Code Activity Bar */
+
+.activity-bar {
+  width: 48px;
+  background: var(--vscode-activity-bar);
+  border-right: 1px solid var(--vscode-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  user-select: none;
+  z-index: 35;
+  height: 100%;
+}
+
+.activity-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 8px 0;
+  width: 100%;
+}
+
+.activity-spacer {
+  flex: 1;
+}
+
+.activity-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 8px 0;
+  width: 100%;
+}
+
+.activity-item {
+  width: 48px;
+  height: 48px;
+  background: none;
+  border: none;
+  color: var(--vscode-activity-inactive);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: var(--vscode-transition);
+  outline: none;
+  font-size: 16px;
+}
+
+.activity-item:hover {
+  background: var(--vscode-activity-bar-hover);
+  color: var(--vscode-activity-foreground);
+}
+
+.activity-item:focus-visible {
+  outline: 2px solid var(--vscode-activity-active);
+  outline-offset: 2px;
+}
+
+.activity-item.active {
+  color: var(--vscode-activity-foreground);
+  background: var(--vscode-activity-active-bg);
+}
+
+.activity-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 16px;
+  background: var(--vscode-activity-active);
+  border-radius: 0 2px 2px 0;
+}
+
+.activity-indicator {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  background: var(--vscode-activity-active);
+  border-radius: 50%;
+  opacity: 0;
+  transition: var(--vscode-transition);
+  border: 1px solid var(--vscode-activity-bar);
+}
+
+.activity-item.has-notification .activity-indicator {
+  opacity: 1;
+}
+
+.add-tool {
+  border: 2px dashed var(--vscode-border);
+  color: var(--vscode-text-muted);
+  border-radius: 4px;
+  transition: var(--vscode-transition);
+}
+
+.add-tool:hover {
+  border-color: var(--vscode-activity-active);
+  color: var(--vscode-activity-active);
+  background: var(--vscode-activity-active-bg);
+}
+
+/* ChatGPT-inspired enhancements */
+.chatgpt-activity-bar {
+  background: var(--chatgpt-surface);
+  border-right: 1px solid var(--chatgpt-border);
+}
+
+.chatgpt-activity-bar .activity-item {
+  color: var(--chatgpt-text-light);
+  border-radius: 8px;
+  margin: 2px 4px;
+  width: 40px;
+  height: 40px;
+}
+
+.chatgpt-activity-bar .activity-item:hover {
+  background: var(--chatgpt-surface-hover);
+  color: var(--chatgpt-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(16, 163, 127, 0.1);
+}
+
+.chatgpt-activity-bar .activity-item.active {
+  background: var(--chatgpt-primary-light);
+  color: var(--chatgpt-primary);
+  box-shadow: 0 2px 8px rgba(16, 163, 127, 0.2);
+}
+
+.chatgpt-activity-bar .activity-item.active::before {
+  background: var(--chatgpt-primary);
+  width: 3px;
+  height: 20px;
+  border-radius: 0 4px 4px 0;
+}
+
+.chatgpt-activity-bar .add-tool {
+  border-color: var(--chatgpt-border);
+  color: var(--chatgpt-text-light);
+}
+
+.chatgpt-activity-bar .add-tool:hover {
+  border-color: var(--chatgpt-primary);
+  color: var(--chatgpt-primary);
+  background: var(--chatgpt-primary-light);
+}
+
+/* Icon styling */
+.activity-item svg,
+.add-tool svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .activity-bar {
+    width: 40px;
+  }
+
+  .activity-item {
+    width: 40px;
+    height: 40px;
+    min-height: var(--vscode-touch-target);
+    min-width: var(--vscode-touch-target);
+  }
+
+  .activity-item svg,
+  .add-tool svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .chatgpt-activity-bar .activity-item {
+    width: 32px;
+    height: 32px;
+    margin: 1px 2px;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .activity-item {
+    border: 1px solid transparent;
+  }
+  
+  .activity-item:hover,
+  .activity-item.active {
+    border-color: currentColor;
+  }
+}
+
+/* Accessibility improvements */
+.activity-item[aria-pressed="true"] {
+  background: var(--vscode-activity-active-bg);
+  color: var(--vscode-activity-foreground);
+}
+
+/* Tooltip positioning for activity bar items */
+.activity-item[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 52px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--vscode-widget-shadow);
+  color: var(--vscode-foreground);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  animation: tooltipFadeIn 0.2s ease-out 0.5s forwards;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* Loading state for activity items */
+.activity-item.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.activity-item.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Focus management */
+.activity-bar:focus-within .activity-item:focus {
+  z-index: 1;
+}
+
+/* Better visual hierarchy */
+.activity-item {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.activity-item:active {
+  transform: scale(0.95);
+}
+
+.chatgpt-activity-bar .activity-item:active {
+  transform: translateY(-1px) scale(0.95);
+}

@@ -1,0 +1,277 @@
+/* Minimalistic Todo Note - Google Docs Style */
+.todo-note {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 0;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  color: #202124;
+  font-weight: 400;
+  cursor: pointer;
+  margin: 8px;
+}
+
+.todo-note:hover {
+}
+
+.todo-note.full-view {
+  background: #ffffff;
+  padding: 0;
+  min-height: auto;
+  height: 100%;
+  overflow: visible;
+  color: #202124;
+  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  border-radius: 0;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px 12px 20px;
+  background: #f8f9fa;
+  margin-bottom: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 8px 8px 0 0;
+}
+
+.todo-note.full-view .todo-header {
+  padding: 0 0 20px 0;
+  margin-bottom: 24px;
+  background: #ffffff;
+  border-radius: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.todo-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #5f6368;
+  font-weight: 500;
+}
+
+.todo-count {
+  background: #e8f0fe;
+  color: #1a73e8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.todo-progress {
+  font-size: 12px;
+  color: #5f6368;
+  font-weight: 400;
+}
+
+.todo-content {
+  flex: 1;
+  padding: 16px 20px 20px 20px;
+  margin-bottom: 0;
+  color: #202124;
+  line-height: 1.6;
+}
+
+.todo-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 6px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  margin: 0 -8px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.todo-item:hover {
+  background: #f1f3f4;
+}
+
+.todo-item.completed {
+  opacity: 0.6;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #5f6368;
+}
+
+.todo-checkbox {
+  flex-shrink: 0;
+  font-size: 16px;
+  user-select: none;
+  color: #1a73e8;
+  margin-top: 1px;
+  padding: 4px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-checkbox.completed {
+  color: #34a853;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #202124;
+  font-weight: 400;
+  word-wrap: break-word;
+  margin-top: 1px;
+}
+
+.todo-text.completed {
+  text-decoration: line-through;
+  color: #5f6368;
+  opacity: 0.6;
+}
+
+.new-todo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 0 8px;
+}
+
+.new-todo-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #202124;
+  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  padding: 8px 0;
+}
+
+.new-todo-input::placeholder {
+  color: #9aa0a6;
+}
+
+.todo-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: #5f6368;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.todo-note:hover .todo-actions {
+  opacity: 1;
+}
+
+.todo-action {
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #5f6368;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  font-weight: 400;
+}
+
+.todo-action:hover {
+  background: #f1f3f4;
+  color: #202124;
+}
+
+.delete-btn:hover {
+  background: #ffffff;
+  color: #d93025;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .todo-note {
+    border-radius: 8px;
+    min-height: 100px;
+  }
+
+  .todo-header {
+    padding: 10px 14px 6px 14px;
+  }
+
+  .todo-content {
+    padding: 0 14px 14px 14px;
+  }
+
+  .todo-item {
+    min-height: 44px;
+    padding: 8px;
+  }
+
+  .todo-text {
+    font-size: 16px;
+  }
+
+  .new-todo-input {
+    font-size: 16px;
+  }
+
+  .todo-action {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px 12px;
+  }
+}
+
+/* Always show completed todos - override any hiding */
+.todo-item.completed {
+  display: flex !important;
+  opacity: 0.6;
+}
+
+.completed-todos {
+  display: block !important;
+}
+
+.show-completed-toggle {
+  display: none !important;
+}

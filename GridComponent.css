@@ -1,0 +1,227 @@
+.grid-component {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.grid-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.grid-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.grid-title-input {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.grid-title-input:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.grid-title-input:focus {
+  background: white;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.add-to-grid-btn {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-to-grid-btn:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.grid-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: white;
+  transition: background-color 0.2s ease;
+}
+
+.grid-content.drag-over {
+  background: rgba(59, 130, 246, 0.05);
+  border: 2px dashed #3b82f6;
+  border-radius: 8px;
+  margin: 8px;
+}
+
+.grid-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #9ca3af;
+  text-align: center;
+  gap: 12px;
+}
+
+.grid-empty-state p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b7280;
+  margin: 0;
+}
+
+.grid-empty-state span {
+  font-size: 14px;
+  margin: 0;
+}
+
+.grid-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.grid-item {
+  position: relative;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.grid-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: #d1d5db;
+}
+
+.remove-from-grid {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6b7280;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.grid-item:hover .remove-from-grid {
+  opacity: 1;
+}
+
+.remove-from-grid:hover {
+  background: #fee2e2;
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+/* Override note component styles in grid */
+.grid-item .basic-note,
+.grid-item .enhanced-note,
+.grid-item .voice-note,
+.grid-item .sketch-note,
+.grid-item .scan-note,
+.grid-item .media-note,
+.grid-item .webview-note {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  background: transparent;
+  min-height: auto;
+}
+
+/* Scrollbar styling */
+.grid-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.grid-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.grid-content::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+.grid-content::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.grid-dropzone {
+  min-height: 120px;
+  background: #fff;
+  border: 2px dashed #000;
+  border-radius: 0;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  align-items: start;
+  transition: background 0.2s;
+}
+
+.grid-dropzone.drag-over {
+  background: #f5f5f5;
+}
+
+.grid-draggable-item {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 0;
+  padding: 8px;
+  cursor: grab;
+  position: relative;
+  width: 100%;
+  min-height: 120px;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: #fff;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  font-size: 1em;
+}

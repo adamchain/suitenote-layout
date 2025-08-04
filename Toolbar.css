@@ -1,0 +1,152 @@
+.toolbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-top: 1px solid #c7c7c7;
+  padding: 8px 16px 24px;
+  z-index: 100;
+  animation: slideUp 0.4s ease;
+}
+
+.toolbar-content {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.toolbar-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #c7c7c7;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 64px;
+  position: relative;
+}
+
+.toolbar-button:hover {
+  background: #f5f5f5;
+  border-color: #cccccc;
+}
+
+.toolbar-button:active {
+  background: #eeeeee;
+}
+
+/* Color variants for note buttons */
+.toolbar-button.color-yellow {
+  background: #fff9c4;
+  color: #000000;
+  border-color: #c7c7c7;
+}
+
+.toolbar-button.color-blue {
+  background: #dbeafe;
+  color: #000000;
+  border-color: #c7c7c7;
+}
+
+.toolbar-button.color-purple {
+  background: #e9d5ff;
+  color: #000000;
+  border-color: #c7c7c7;
+}
+
+.toolbar-button.color-green {
+  background: #d1fae5;
+  color: #000000;
+  border-color: #c7c7c7;
+}
+
+.toolbar-button.color-pink {
+  background: #fce7f3;
+  color: #000000;
+  border-color: #c7c7c7;
+}
+
+.toolbar-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.18;
+  color: #000000;
+}
+
+.toolbar-shortcut {
+  font-size: 9px;
+  color: #888888;
+  background: #f5f5f5;
+  padding: 2px 6px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Mono', monospace;
+  font-weight: 500;
+}
+
+.toolbar-info {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: #888888;
+  line-height: 1.38;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .toolbar {
+    padding: 8px 12px 20px;
+  }
+
+  .toolbar-content {
+    gap: 8px;
+  }
+
+  .toolbar-button {
+    min-width: 56px;
+    padding: 10px;
+  }
+
+  .toolbar-label {
+    font-size: 10px;
+  }
+
+  .toolbar-shortcut {
+    display: none;
+  }
+
+  .toolbar-info {
+    font-size: 12px;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolbar {
+    padding: 6px 8px 16px;
+  }
+
+  .toolbar-content {
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  .toolbar-button {
+    min-width: 48px;
+    padding: 8px;
+  }
+
+  .toolbar-label {
+    font-size: 9px;
+  }
+
+  .toolbar-info {
+    display: none;
+  }
+}

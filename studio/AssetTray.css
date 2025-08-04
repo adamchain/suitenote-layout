@@ -1,0 +1,87 @@
+.asset-tray {
+  background: var(--vscode-panel-bg);
+  border-top: 1px solid var(--vscode-panel-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tray-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--vscode-space-sm) var(--vscode-space-md);
+  border-bottom: 1px solid var(--vscode-border);
+  background: var(--vscode-bg-tertiary);
+}
+
+.tray-title {
+  display: flex;
+  align-items: center;
+  gap: var(--vscode-space-sm);
+  font-size: var(--vscode-font-size-sm);
+  font-weight: 600;
+  color: var(--vscode-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.add-asset-btn {
+  background: none;
+  border: none;
+  color: var(--vscode-text-secondary);
+  cursor: pointer;
+  padding: var(--vscode-space-xs);
+  border-radius: 2px;
+  transition: var(--vscode-transition);
+}
+
+.add-asset-btn:hover {
+  background: var(--vscode-bg-elevated);
+  color: var(--vscode-text-primary);
+}
+
+.tray-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--vscode-space-md);
+}
+
+.assets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: var(--vscode-space-sm);
+}
+
+.asset-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--vscode-space-xs);
+  padding: var(--vscode-space-sm);
+  background: var(--vscode-bg-secondary);
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  cursor: grab;
+  transition: var(--vscode-transition);
+}
+
+.asset-item:hover {
+  background: var(--vscode-bg-elevated);
+  border-color: var(--vscode-border-focus);
+}
+
+.asset-item.dragging {
+  cursor: grabbing;
+  opacity: 0.5;
+}
+
+.asset-icon {
+  color: var(--vscode-text-secondary);
+}
+
+.asset-label {
+  font-size: var(--vscode-font-size-sm);
+  color: var(--vscode-text-primary);
+  text-align: center;
+}

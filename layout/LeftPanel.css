@@ -1,21 +1,28 @@
-/* Google Docs Style Left Panel */
+/* Apple Intelligence Style Left Panel */
 
 .left-panel {
   position: relative;
-  background: var(--vscode-sidebar-bg);
+  background: 
+    radial-gradient(ellipse at 30% 20%, rgba(219, 147, 255, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(255, 149, 0, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 90%, rgba(255, 45, 85, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 30%, rgba(50, 173, 230, 0.2) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 255, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   height: 100vh;
   z-index: 10;
-  font-family: var(--font-family);
-  color: var(--vscode-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  color: #1d1d1f;
   padding: 0;
   gap: 0;
   min-width: 280px;
-  border-right: 1px solid var(--vscode-border);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
-  box-shadow: var(--fluent-shadow);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -24,14 +31,13 @@
   min-width: 48px !important;
 }
 
-/* VS Panel Sections - actual structure */
+/* Apple Intelligence Panel Sections */
 .vs-panel-sections {
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   min-height: 0;
-
 }
 
 .vs-panel-section {
@@ -70,45 +76,56 @@
   min-height: 0;
 }
 
-/* Search container */
+/* Apple Intelligence Search Container */
 .clean-search-container {
   position: relative;
-  margin: 16px;
+  margin: 8px;
   flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .clean-search-input {
   width: 100%;
-  font-size: 14px;
-  color: var(--vscode-text);
+  font-size: 12px;
+  color: #1d1d1f;
   outline: none;
   transition: all 0.15s ease;
   font-family: inherit;
   font-weight: 400;
-  margin-left: 24px;
+  padding: 6px 8px 6px 28px;
+  background: transparent;
+  border: none;
 }
 
+.clean-search-input::placeholder {
+  color: #8e8e93;
+}
 
 .clean-search-icon {
   position: absolute;
-  left: 14px;
+  left: 8px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--vscode-text-muted);
+  color: #8e8e93;
   pointer-events: none;
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
   margin-right: 8px;
 }
 
-/* Tree view */
+/* Apple Intelligence Tree View */
 .tree-view {
   flex: 1;
   overflow-y: auto;
   min-height: 0;
 }
 
-/* Tree items - Google Docs styling */
+/* Tree Items - Apple Intelligence Style */
 .tree-node {
   margin: 0;
 }
@@ -116,35 +133,38 @@
 .tree-item {
   display: flex;
   align-items: center;
-  padding: 4px 8px;
-  margin: 1px 4px;
-  border-radius: 6px;
+  padding: 3px 6px;
+  margin: 1px 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease;
   position: relative;
-  min-height: 28px;
+  min-height: 24px;
 }
 
 .tree-item:hover {
-  background: var(--vscode-bg-hover);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .tree-item.selected {
-  background: var(--copilot-primary-light);
-  color: var(--copilot-primary);
+  background: linear-gradient(135deg, #007aff 0%, #af52de 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
 }
 
 .tree-item.multi-selected {
-  background: var(--copilot-primary-light);
-  color: var(--copilot-primary);
-  border: 1px solid var(--copilot-primary);
+  background: rgba(0, 122, 255, 0.15);
+  color: #007aff;
+  border: 1px solid rgba(0, 122, 255, 0.3);
 }
 
 .tree-item-content {
   display: flex;
   align-items: center;
   flex: 1;
-  gap: 4px;
+  gap: 6px;
   min-width: 0;
 }
 
@@ -153,48 +173,48 @@
   border: none;
   padding: 2px;
   cursor: pointer;
-  color: var(--vscode-text-muted);
+  color: #8e8e93;
   transition: all 0.2s ease;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 6px;
   flex-shrink: 0;
 }
 
 .expand-btn:hover {
-  background: var(--vscode-bg-hover);
-  color: var(--vscode-text);
+  background: rgba(0, 122, 255, 0.1);
+  color: #007aff;
 }
 
 .expand-placeholder {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
 }
 
 .tree-item-icon {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--vscode-text-muted);
-  margin-right: 4px;
+  color: #8e8e93;
+  margin-right: 6px;
 }
 
 .tree-item.selected .tree-item-icon {
-  color: var(--copilot-primary);
+  color: white;
 }
 
 .tree-item-label {
   flex: 1;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 400;
-  color: var(--vscode-text);
+  color: #1d1d1f;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -203,7 +223,7 @@
 }
 
 .tree-item.selected .tree-item-label {
-  color: var(--copilot-primary);
+  color: white;
   font-weight: 500;
 }
 
@@ -213,7 +233,7 @@
   gap: 2px;
   opacity: 0;
   transition: opacity 0.2s ease;
-  margin-left: 4px;
+  margin-left: 6px;
 }
 
 .tree-item:hover .tree-item-actions {
@@ -224,98 +244,106 @@
   background: none;
   border: none;
   padding: 2px;
-  border-radius: 50%;
+  border-radius: 4px;
   cursor: pointer;
-  color: var(--vscode-text-muted);
+  color: #8e8e93;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
 }
 
 .tree-action:hover {
-  background: var(--vscode-bg-hover);
-  color: var(--vscode-text);
+  background: rgba(0, 122, 255, 0.1);
+  color: #007aff;
 }
 
-/* Add Note button at bottom */
+/* Apple Intelligence Add Button */
 .quicknotes-button {
   display: flex;
   align-items: center;
   gap: 8px;
   width: calc(100% - 32px);
-  background: var(--copilot-primary);
+  background: linear-gradient(135deg, #007aff 0%, #af52de 100%);
   color: white;
   border: none;
-  border-radius: var(--fluent-radius-lg);
-  padding: 12px 16px;
-  margin: 16px 16px 20px 16px;
-  font-size: 14px;
+  border-radius: 12px;
+  padding: 8px 12px;
+  margin: 8px 16px 12px 16px;
+  font-size: 12px;
   font-weight: 500;
   cursor: pointer;
-  transition: var(--transition-normal);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   margin-top: auto;
   flex-shrink: 0;
   font-family: inherit;
+  box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
 }
 
 .quicknotes-button:hover {
-  background: var(--copilot-primary-hover);
+  background: linear-gradient(135deg, #0051d5 0%, #9b51e0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 122, 255, 0.4);
 }
 
 .quicknotes-button svg {
   flex-shrink: 0;
 }
 
-/* Mobile-inspired header for left panel */
+/* Apple Intelligence Panel Header */
 .copilot-panel-header {
-  padding: 20px 16px;
-  border-bottom: 1px solid var(--vscode-border);
-  background: var(--vscode-bg-alt);
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 .copilot-panel-title {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
-  color: var(--vscode-text-primary);
+  color: #1d1d1f;
   margin: 0;
   letter-spacing: -0.01em;
 }
 
 .copilot-panel-subtitle {
-  font-size: 13px;
-  color: var(--vscode-text-muted);
+  font-size: 11px;
+  color: #8e8e93;
   margin: 4px 0 0 0;
   font-weight: 400;
 }
 
-/* Drive-inspired content area */
+/* Apple Intelligence Content Area */
 .drive-content-area {
   flex: 1;
   overflow-y: auto;
   padding: 0;
-  background: var(--vscode-sidebar-bg);
+  background: transparent;
   min-height: 0;
 }
 
-/* Panel Headers */
+/* Apple Intelligence Panel Headers */
 .panel-header {
   flex-shrink: 0;
-  padding: var(--space-lg) var(--space-lg) var(--space-md) var(--space-lg);
-  border-bottom: 1px solid var(--vscode-border);
-  background: var(--vscode-bg-alt);
+  padding: 6px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  min-height: 28px;
 }
 
 .logo-section {
-  margin-bottom: var(--space-lg);
+  margin-bottom: 8px;
 }
 
 .logo-section span {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 600;
-  color: var(--vscode-text-primary);
+  color: #1d1d1f;
   letter-spacing: -0.25px;
 }
 
@@ -323,37 +351,41 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
-  font-size: 14px;
+  gap: 4px;
+  font-size: 11px;
   font-weight: 500;
-  color: var(--vscode-text);
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--fluent-radius);
-  border: 1px solid var(--vscode-border);
-  background: var(--vscode-bg-elevated);
+  color: #1d1d1f;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   cursor: pointer;
-  transition: var(--transition-normal);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin: 4px 6px;
 }
 
 .workspace-selector:hover {
-  border-color: var(--copilot-primary);
-  box-shadow: var(--fluent-shadow);
-  background: var(--vscode-bg-hover);
+  border-color: rgba(0, 122, 255, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 122, 255, 0.15);
 }
 
 .workspace-dropdown-btn {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--vscode-text-muted);
+  color: #8e8e93;
   padding: 4px;
   border-radius: 4px;
   transition: all 0.15s ease;
 }
 
 .workspace-dropdown-btn:hover {
-  background: var(--vscode-bg-hover);
-  color: var(--vscode-text);
+  background: rgba(0, 122, 255, 0.1);
+  color: #007aff;
 }
 
 .workspace-dropdown {
@@ -361,59 +393,61 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--vscode-bg-elevated);
-  border: 1px solid var(--vscode-border);
-  border-radius: var(--fluent-radius-lg);
-  box-shadow: var(--fluent-shadow-elevated);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   z-index: 1000;
   overflow: hidden;
   margin-top: 4px;
 }
 
 .workspace-dropdown-header {
-  padding: 12px 16px 8px 16px;
-  font-size: 11px;
+  padding: 8px 12px 6px 12px;
+  font-size: 10px;
   font-weight: 500;
-  color: var(--vscode-text-muted);
+  color: #8e8e93;
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  background: var(--vscode-bg-alt);
+  background: rgba(248, 250, 255, 0.8);
 }
 
 .workspace-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
+  gap: 8px;
+  padding: 6px 10px;
   background: none;
   border: none;
   cursor: pointer;
   width: 100%;
   text-align: left;
-  font-size: 14px;
-  color: var(--vscode-text);
+  font-size: 11px;
+  color: #1d1d1f;
   transition: background-color 0.2s ease;
 }
 
 .workspace-item:hover {
-  background: var(--vscode-bg-hover);
+  background: rgba(0, 122, 255, 0.08);
 }
 
 .workspace-item.active {
-  background: var(--copilot-primary-light);
-  color: var(--copilot-primary);
+  background: rgba(0, 122, 255, 0.15);
+  color: #007aff;
   font-weight: 500;
 }
 
 .workspace-dropdown-separator {
   height: 1px;
-  background: var(--vscode-border);
-  margin: 8px 0;
+  background: rgba(0, 0, 0, 0.06);
+  margin: 4px 0;
 }
 
 .panel-footer {
   flex-shrink: 0;
-  padding: 16px;
+  padding: 8px;
   margin-top: auto;
 }
 
@@ -424,21 +458,23 @@
 .user-button {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px 12px;
-  border-radius: 20px;
+  padding: 6px 8px;
+  border-radius: 12px;
   transition: background-color 0.2s ease;
   width: 100%;
   text-align: left;
-  font-size: 14px;
-  color: var(--vscode-text);
+  font-size: 11px;
+  color: #1d1d1f;
 }
 
 .user-button:hover {
-  background: var(--vscode-bg-hover);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .user-name {
@@ -450,10 +486,12 @@
   bottom: 100%;
   left: 0;
   right: 0;
-  background: var(--vscode-bg-elevated);
-  border: 1px solid var(--vscode-border);
-  border-radius: var(--fluent-radius-lg);
-  box-shadow: var(--fluent-shadow-elevated);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   z-index: 1000;
   overflow: hidden;
   margin-bottom: 4px;
@@ -462,20 +500,20 @@
 .user-info {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px;
-  border-bottom: 1px solid var(--vscode-border);
+  gap: 8px;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .user-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--vscode-bg-hover);
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(0, 122, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--vscode-text-muted);
+  color: #007aff;
   flex-shrink: 0;
 }
 
@@ -485,40 +523,40 @@
 }
 
 .user-display-name {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
-  color: var(--vscode-text);
+  color: #1d1d1f;
   margin-bottom: 2px;
 }
 
 .user-phone {
-  font-size: 12px;
-  color: var(--vscode-text-muted);
+  font-size: 10px;
+  color: #8e8e93;
 }
 
 .dropdown-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
+  gap: 8px;
+  padding: 8px 10px;
   background: none;
   border: none;
   cursor: pointer;
   width: 100%;
   text-align: left;
-  font-size: 14px;
-  color: var(--vscode-text);
+  font-size: 11px;
+  color: #1d1d1f;
   transition: background-color 0.2s ease;
 }
 
 .dropdown-item:hover {
-  background: var(--vscode-bg-hover);
+  background: rgba(0, 122, 255, 0.08);
 }
 
 .dropdown-item.danger {
-  color: #ea4335;
+  color: #ff3b30;
 }
 
 .dropdown-item.danger:hover {
-  background: #fce8e6;
+  background: rgba(255, 59, 48, 0.08);
 }
